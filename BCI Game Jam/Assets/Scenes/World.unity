@@ -226,6 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1208700222}
   - component: {fileID: 1208700223}
+  - component: {fileID: 1208700224}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -261,6 +262,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebcad5dc77c574487b48c1a1ee1adcf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Cognixion::Cognixion.DelayAction
+--- !u!114 &1208700224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208700221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6208f36d335866141b6f8625f64be3b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BCIController
+  _stimuliList: []
+  _frequencies: []
 --- !u!1 &1213499787
 GameObject:
   m_ObjectHideFlags: 0
