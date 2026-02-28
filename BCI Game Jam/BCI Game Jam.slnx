@@ -1,5 +1,6 @@
 ﻿<Solution>
   <Project Path="Cognixion.Services.BCI.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Cognixion.csproj" />
   <Project Path="Cognixion.Services.CameraSystem.csproj" />
   <Project Path="Cognixion.Services.AndroidMessaging.csproj" />
@@ -8,5 +9,4 @@
   <Project Path="Cognixion.App.LabStreamingLayer.csproj" />
   <Project Path="Cognixion.Services.LayoutBuilder.csproj" />
   <Project Path="Cognixion.App.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
 </Solution>

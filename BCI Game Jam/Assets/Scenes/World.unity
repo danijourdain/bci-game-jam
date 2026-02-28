@@ -176,8 +176,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 27.777779, y: 27.777779, z: 27.777779}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1102947398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 1102947397}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.06, z: 0.6}
   m_LocalScale: {x: 0.036, y: 0.036, z: 0.036}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -274,8 +274,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6208f36d335866141b6f8625f64be3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BCIController
-  _stimuliList: []
-  _frequencies: []
+  _stimuliList:
+  - {fileID: 2724420873979550007}
+  - {fileID: 2062877259}
+  _frequencies:
+  - 7
+  - 10
 --- !u!1 &1213499787
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +372,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2724420873979550006}
+  - {fileID: 2062877258}
   m_Father: {fileID: 1102947398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1585741731
@@ -397,11 +403,161 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 27.777779, y: 27.777779, z: 27.777779}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1102947398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2062877257
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1401640594}
+    m_Modifications:
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.047
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660251949912022711, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: _id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248465091154441306, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_Name
+      value: Square Stimulus (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+--- !u!4 &2062877258 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+  m_PrefabInstance: {fileID: 2062877257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2062877259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2660251949912022711, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+  m_PrefabInstance: {fileID: 2062877257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84487a1b3d374cbda803a6a2d7d3ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Cognixion.Services.BCI::Cognixion.Services.BCI.BCIStimulus_MonoBehaviour
+--- !u!1001 &2724420873979550005
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1401640594}
+    m_Modifications:
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.154
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248465091154441306, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+      propertyPath: m_Name
+      value: Square Stimulus
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+--- !u!4 &2724420873979550006 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 246814058082357565, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+  m_PrefabInstance: {fileID: 2724420873979550005}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2724420873979550007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2660251949912022711, guid: dadab4973a950de46a9b9c05a8df76cc, type: 3}
+  m_PrefabInstance: {fileID: 2724420873979550005}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84487a1b3d374cbda803a6a2d7d3ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Cognixion.Services.BCI::Cognixion.Services.BCI.BCIStimulus_MonoBehaviour
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
