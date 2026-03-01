@@ -6,7 +6,6 @@ public class shoot_and_turn : MonoBehaviour
     public GameObject projectilePrefab;
     public float speed = 10f;
     public float rotationDuration = 0.2f; // rotate over 0.2 seconds
-
     private Quaternion startRotation;
     private Quaternion targetRotation;
     private float rotationTimer = 0f;
@@ -35,10 +34,10 @@ public class shoot_and_turn : MonoBehaviour
         startRotation = transform.rotation;
         targetRotation = transform.rotation;
 
-        controls.Player.pos1.performed += ctx => RotateAndScheduleShoot(60f);
-        controls.Player.pos2.performed += ctx => RotateAndScheduleShoot(30f);
-        controls.Player.pos3.performed += ctx => RotateAndScheduleShoot(-30f);
-        controls.Player.pos4.performed += ctx => RotateAndScheduleShoot(-60f);
+        controls.Player.pos1.performed += ctx => RotateAndScheduleShoot(50f);
+        controls.Player.pos2.performed += ctx => RotateAndScheduleShoot(16f);
+        controls.Player.pos3.performed += ctx => RotateAndScheduleShoot(-16f);
+        controls.Player.pos4.performed += ctx => RotateAndScheduleShoot(-50f);
     }
 
     void Update()
