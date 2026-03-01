@@ -101,6 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5899933520592355736}
   - component: {fileID: 6498792925688175190}
+  - component: {fileID: 1672972703128301677}
   m_Layer: 0
   m_Name: projectile
   m_TagString: Untagged
@@ -151,3 +152,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1672972703128301677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7848658160920619835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb77f02f761a8b44a5f48db07c4a178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::bullet
+  despawnTimer: 1
