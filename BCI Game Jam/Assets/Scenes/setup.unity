@@ -313,7 +313,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5740643390099825801, guid: b2f7ddc444aa34d28b2a6de349bf08f3, type: 3}
       propertyPath: _parameters.DefaultGyroMode
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740643390099825801, guid: b2f7ddc444aa34d28b2a6de349bf08f3, type: 3}
+      propertyPath: _parameters.DefaultCameraMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4233347125343435332, guid: b2f7ddc444aa34d28b2a6de349bf08f3, type: 3}
