@@ -36,6 +36,7 @@ public class FollowPath : MonoBehaviour
             throw new InvalidArraySizeException("Invalid length for waypoints. Needs to have at least 2 items");
         }
 
+
         GoToBeginning();
     }
 
@@ -46,12 +47,15 @@ public class FollowPath : MonoBehaviour
         nextWaypointIndex++;
         spriteRenderer.enabled = true;
         isMoving = true;
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, transform.position-waypoints[nextWaypointIndex].transform.position);
+        GetComponent<Rigidbody2D>().linearVelocity = -transform.up * moveSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+        
+        // Move();
     }
 
     private void Move()
