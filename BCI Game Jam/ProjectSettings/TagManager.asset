@@ -50,5 +50,8 @@ TagManager:
   - name: Player
     uniqueID: 1460310935
     locked: 0
+  - name: BCI
+    uniqueID: 3852226489
+    locked: 0
   m_RenderingLayers:
   - Default
