@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
     private float spawnTimer = 3.5f;
     [SerializeField]
     private float enemySpawnInterval = 10f;
+    [SerializeField]
+    private bool horizontalSpawn = true;
 
 
     void Start()
@@ -20,11 +24,24 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private IEnumerator spawnEnemies(float interval, GameObject enemy)
-    {
-        yield return new WaitForSeconds(interval);
-        GameObject newEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
-        newEnemy.transform.parent = transform;
-        newEnemy.transform.localScale = Vector3.one * 4f;
+    {   
+
+        float randInterval = Random.Range(0.5f, 1.5f) * interval;
+        yield return new WaitForSeconds(randInterval);
+        if (horizontalSpawn)
+        {
+            GameObject newEnemy = Instantiate(enemy, (transform.position), Quaternion.identity);
+            newEnemy.transform.position = new Vector3(newEnemy.transform.position.x + Random.Range(-20f, 20f), transform.position.y, 0f);
+            newEnemy.transform.parent = transform;
+            newEnemy.transform.localScale = Vector3.one * 4f;
+        }
+        else
+        {
+            GameObject newEnemy = Instantiate(enemy, (transform.position), Quaternion.identity);
+            newEnemy.transform.position = new Vector3(transform.position.x, newEnemy.transform.position.y + Random.Range(-20f, 20f), 0f);
+            newEnemy.transform.parent = transform;
+            newEnemy.transform.localScale = Vector3.one * 4f;
+        }
         StartCoroutine(spawnEnemies(enemySpawnInterval, enemy));
     }
 }
