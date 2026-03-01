@@ -1,19 +1,24 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class shoot_and_turn : MonoBehaviour
 {
     public GameObject projectilePrefab;
     public float speed = 10f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float rotationDuration = 0.2f; // rotate over 0.2 seconds
 
-    public void Shoot()
+    private Quaternion startRotation;
+    private Quaternion targetRotation;
+    private float rotationTimer = 0f;
+    private bool isRotating = false;
+    private bool pendingShoot = false; // flag to shoot after rotation
+
+    private InputSystem_Actions controls;
+
+    private void Awake()
     {
-       GameObject projectile = Instantiate(projectilePrefab, transform.parent,false);
-       projectile.transform.position = transform.position;
-       projectile.transform.rotation = transform.rotation;
-       projectile.GetComponent<Rigidbody2D>().linearVelocity = transform.up * speed; 
+        controls = new InputSystem_Actions();
     }
-
 
     private void OnEnable()
     {
@@ -25,42 +30,52 @@ public class shoot_and_turn : MonoBehaviour
         controls.Player.Disable();
     }
 
-    private void Awake()
-    {
-        controls = new InputSystem_Actions();
-    }
-    private InputSystem_Actions controls;
     void Start()
     {
-        controls.Player.pos1.performed += ctx =>
-        {
-            Debug.Log("pos1");
-            transform.rotation = Quaternion.Euler(0, 0, 60);
-            Shoot();
-        };
+        startRotation = transform.rotation;
+        targetRotation = transform.rotation;
 
-        controls.Player.pos2.performed += ctx =>
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 30);
-            Shoot();
-        };
-
-        controls.Player.pos3.performed += ctx =>
-        {
-            transform.rotation = Quaternion.Euler(0, 0, -30);
-            Shoot();
-        };
-
-        controls.Player.pos4.performed += ctx =>
-        {
-            transform.rotation = Quaternion.Euler(0, 0, -60);
-            Shoot();
-        };
+        controls.Player.pos1.performed += ctx => RotateAndScheduleShoot(60f);
+        controls.Player.pos2.performed += ctx => RotateAndScheduleShoot(30f);
+        controls.Player.pos3.performed += ctx => RotateAndScheduleShoot(-30f);
+        controls.Player.pos4.performed += ctx => RotateAndScheduleShoot(-60f);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (isRotating)
+        {
+            rotationTimer += Time.deltaTime;
+            float t = rotationTimer / rotationDuration;
+            t = Mathf.Clamp01(t);
+            transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
+
+            if (t >= 1f)
+            {
+                isRotating = false;
+                if (pendingShoot)
+                {
+                    Shoot();
+                    pendingShoot = false;
+                }
+            }
+        }
+    }
+
+    void RotateAndScheduleShoot(float zAngle)
+    {
+        startRotation = transform.rotation;
+        targetRotation = Quaternion.Euler(0, 0, zAngle);
+        rotationTimer = 0f;
+        isRotating = true;
+        pendingShoot = true; // mark that we want to shoot after rotation
+    }
+
+    void Shoot()
+    {
+        GameObject projectile = Instantiate(projectilePrefab, transform.parent, false);
+        projectile.transform.position = transform.position;
+        projectile.transform.rotation = transform.rotation;
+        projectile.GetComponent<Rigidbody2D>().linearVelocity = transform.up * speed;
     }
 }
