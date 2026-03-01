@@ -16,15 +16,15 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(spawnEnemies(spawnTimer, swarmPrefab));
+        StartCoroutine(SpawnEnemies(spawnTimer, swarmPrefab));
     }
 
-    private IEnumerator spawnEnemies(float interval, GameObject enemy)
+    private IEnumerator SpawnEnemies(float interval, GameObject enemy)
     {
         yield return new WaitForSeconds(interval);
         GameObject newEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
         newEnemy.transform.parent = transform;
         newEnemy.transform.localScale = Vector3.one * 4f;
-        StartCoroutine(spawnEnemies(enemySpawnInterval, enemy));
+        StartCoroutine(SpawnEnemies(enemySpawnInterval, enemy));
     }
 }
