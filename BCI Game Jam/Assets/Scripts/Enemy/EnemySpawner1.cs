@@ -17,31 +17,25 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private bool horizontalSpawn = true;
 
-
-    void Start()
+    [SerializeField]
+    public Transform[] pathStarts; 
+    [SerializeField]
+    public Transform pathEnd;
+    void Update()
     {
-        StartCoroutine(spawnEnemies(spawnTimer, swarmPrefab));
+        spawnTimer -= Time.deltaTime;
+        if (spawnTimer <= 0)
+        {
+            spawnEnemies(spawnTimer, swarmPrefab);
+            spawnTimer = enemySpawnInterval;
+        }
     }
 
-    private IEnumerator spawnEnemies(float interval, GameObject enemy)
-    {   
-
-        float randInterval = Random.Range(0.5f, 1.5f) * interval;
-        yield return new WaitForSeconds(randInterval);
-        if (horizontalSpawn)
-        {
-            GameObject newEnemy = Instantiate(enemy, (transform.position), Quaternion.identity);
-            newEnemy.transform.position = new Vector3(newEnemy.transform.position.x + Random.Range(-20f, 20f), transform.position.y, 0f);
-            newEnemy.transform.parent = transform;
-            newEnemy.transform.localScale = Vector3.one * 4f;
-        }
-        else
-        {
-            GameObject newEnemy = Instantiate(enemy, (transform.position), Quaternion.identity);
-            newEnemy.transform.position = new Vector3(transform.position.x, newEnemy.transform.position.y + Random.Range(-20f, 20f), 0f);
-            newEnemy.transform.parent = transform;
-            newEnemy.transform.localScale = Vector3.one * 4f;
-        }
-        StartCoroutine(spawnEnemies(enemySpawnInterval, enemy));
+    private void spawnEnemies(float delay, GameObject enemy)
+    {
+        GameObject newEnemy = Instantiate(enemy, transform, false);
+        GetPath path = newEnemy.GetComponent<GetPath>();
+        path.pathStarts = pathStarts;
+        path.pathEnd = pathEnd;
     }
 }

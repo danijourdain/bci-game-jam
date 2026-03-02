@@ -225,55 +225,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GetPath
   pathStarts: []
   pathEnd: {fileID: 0}
---- !u!1 &95863294
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 95863295}
-  - component: {fileID: 95863296}
-  m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &95863295
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95863294}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.289999, y: -4.2899995, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1642332118}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &95863296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95863294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26fe3d890141f8c40ba768c81b8b908f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner1
-  swarmPrefab: {fileID: 8258355181097237826, guid: 5ac116f7d887b864eb15dd6ca07cacac, type: 3}
-  enemyPrefab: {fileID: 8258355181097237826, guid: 5ac116f7d887b864eb15dd6ca07cacac, type: 3}
-  spawnTimer: 3.5
-  enemySpawnInterval: 10
-  horizontalSpawn: 1
 --- !u!1 &101150287
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +553,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 412153537}
+  - component: {fileID: 412153538}
   m_Layer: 0
   m_Name: Game Components
   m_TagString: Untagged
@@ -629,55 +581,29 @@ Transform:
   - {fileID: 101150288}
   m_Father: {fileID: 1102947398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &449874501
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 449874502}
-  - component: {fileID: 449874503}
-  m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &449874502
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449874501}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1145918285}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &449874503
+--- !u!114 &412153538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449874501}
+  m_GameObject: {fileID: 412153536}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26fe3d890141f8c40ba768c81b8b908f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner1
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   swarmPrefab: {fileID: 8258355181097237826, guid: 5ac116f7d887b864eb15dd6ca07cacac, type: 3}
   enemyPrefab: {fileID: 8258355181097237826, guid: 5ac116f7d887b864eb15dd6ca07cacac, type: 3}
-  spawnTimer: 3.5
-  enemySpawnInterval: 10
-  horizontalSpawn: 0
+  spawnTimer: 1
+  enemySpawnInterval: 3
+  horizontalSpawn: 1
+  pathStarts:
+  - {fileID: 1145918285}
+  - {fileID: 815106692}
+  - {fileID: 1642332118}
+  - {fileID: 2112737581}
+  pathEnd: {fileID: 1258445154}
 --- !u!1 &815106691
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,7 +615,7 @@ GameObject:
   - component: {fileID: 815106692}
   m_Layer: 0
   m_Name: Lane 2 Start
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -706,8 +632,7 @@ Transform:
   m_LocalPosition: {x: -5, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1509117356}
+  m_Children: []
   m_Father: {fileID: 1987048039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &854634663
@@ -786,7 +711,7 @@ GameObject:
   - component: {fileID: 1145918285}
   m_Layer: 0
   m_Name: Lane 1 Start
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -803,8 +728,7 @@ Transform:
   m_LocalPosition: {x: -15, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 449874502}
+  m_Children: []
   m_Father: {fileID: 1987048039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1206168763
@@ -1037,7 +961,7 @@ GameObject:
   - component: {fileID: 1258445154}
   m_Layer: 0
   m_Name: Lane End
-  m_TagString: Untagged
+  m_TagString: PathEnd
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1139,55 +1063,6 @@ Transform:
   - {fileID: 2062877258}
   m_Father: {fileID: 1102947398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1509117355
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1509117356}
-  - component: {fileID: 1509117357}
-  m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1509117356
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509117355}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.85, y: -4.2899995, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 815106692}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1509117357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509117355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26fe3d890141f8c40ba768c81b8b908f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner1
-  swarmPrefab: {fileID: 8258355181097237826, guid: 5ac116f7d887b864eb15dd6ca07cacac, type: 3}
-  enemyPrefab: {fileID: 8258355181097237826, guid: 5ac116f7d887b864eb15dd6ca07cacac, type: 3}
-  spawnTimer: 3.5
-  enemySpawnInterval: 10
-  horizontalSpawn: 1
 --- !u!1 &1642332117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,7 +1074,7 @@ GameObject:
   - component: {fileID: 1642332118}
   m_Layer: 0
   m_Name: Lane 3 End
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1216,59 +1091,9 @@ Transform:
   m_LocalPosition: {x: 5, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 95863295}
+  m_Children: []
   m_Father: {fileID: 1987048039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1834298799
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1834298800}
-  - component: {fileID: 1834298801}
-  m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1834298800
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834298799}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.14, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2112737581}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1834298801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834298799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26fe3d890141f8c40ba768c81b8b908f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner1
-  swarmPrefab: {fileID: 8258355181097237826, guid: 5ac116f7d887b864eb15dd6ca07cacac, type: 3}
-  enemyPrefab: {fileID: 8258355181097237826, guid: 5ac116f7d887b864eb15dd6ca07cacac, type: 3}
-  spawnTimer: 3.5
-  enemySpawnInterval: 10
-  horizontalSpawn: 0
 --- !u!1 &1883900022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,7 +1328,7 @@ GameObject:
   - component: {fileID: 1987048040}
   m_Layer: 0
   m_Name: Paths
-  m_TagString: Untagged
+  m_TagString: pathend
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1634,7 +1459,7 @@ GameObject:
   - component: {fileID: 2112737581}
   m_Layer: 0
   m_Name: Lane 4 Start
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1651,8 +1476,7 @@ Transform:
   m_LocalPosition: {x: 15, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1834298800}
+  m_Children: []
   m_Father: {fileID: 1987048039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2724420873979550005
