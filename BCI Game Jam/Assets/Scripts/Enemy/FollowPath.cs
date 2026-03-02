@@ -23,7 +23,7 @@ public class FollowPath : MonoBehaviour
 
     private bool isMoving = false;
 
-    private float laneOffset = 1f;
+    public float laneOffset = 1f;
     private float veticalOffset = 0.65f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

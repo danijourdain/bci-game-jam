@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6786797776712035556}
   m_Layer: 0
   m_Name: Default Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FollowPath
   pathContainer: {fileID: 6018765489045422848}
   moveSpeed: 0.05
+  laneOffset: 1
 --- !u!114 &6018765489045422848
 MonoBehaviour:
   m_ObjectHideFlags: 0
