@@ -23,6 +23,9 @@ public class FollowPath : MonoBehaviour
 
     private bool isMoving = false;
 
+    private float laneOffset = 1f;
+    private float veticalOffset = 0.65f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,6 +47,18 @@ public class FollowPath : MonoBehaviour
     {
         waypoints = pathContainer.GetEnemyPath();
         transform.position = waypoints[nextWaypointIndex].transform.position;
+        Vector3 newPosition = transform.position;
+
+        if (nextWaypointIndex == 0 || nextWaypointIndex == 3)
+        {
+            newPosition.x = newPosition.x + Random.Range(-laneOffset, laneOffset);
+        }
+        else
+        {
+            newPosition.y = newPosition.y + Random.Range(-veticalOffset, veticalOffset);
+        }
+        
+        transform.position = newPosition;
         nextWaypointIndex++;
         spriteRenderer.enabled = true;
         isMoving = true;

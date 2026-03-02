@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 public class GetPath : MonoBehaviour
 {
     // list of all possible path starts
+    [SerializeField] public float laneOffset;
     [SerializeField] public Transform[] pathStarts;
     [SerializeField] public Transform pathEnd;
     void Start()
@@ -22,6 +23,9 @@ public class GetPath : MonoBehaviour
 
         Debug.Log("Selected Lane " + lane);
 
-        return new Transform[] { pathStarts[lane], pathEnd };
+        Transform pass = pathStarts[lane];
+        
+
+        return new Transform[] { pass, pathEnd };
     }
 }

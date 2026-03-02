@@ -84,7 +84,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 351015599
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3873087697204469031, guid: 4d8f8e61151267c449d35de3a8789498, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f928fa6bdcbf6e42aeb656831721258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GetPath
+  laneOffset: 0
   pathStarts: []
   pathEnd: {fileID: 0}
 --- !u!61 &444579344962874690

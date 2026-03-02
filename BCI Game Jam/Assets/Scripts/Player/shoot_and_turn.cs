@@ -12,6 +12,8 @@ public class shoot_and_turn : MonoBehaviour
     private bool isRotating = false;
     private bool pendingShoot = false; // flag to shoot after rotation
 
+    private float shootDelay = 0.2f; // delay before shooting after rotation
+
     private InputSystem_Actions controls;
 
     private void Awake()
@@ -76,5 +78,18 @@ public class shoot_and_turn : MonoBehaviour
         projectile.transform.position = transform.position;
         projectile.transform.rotation = transform.rotation;
         projectile.GetComponent<Rigidbody2D>().linearVelocity = transform.up * speed;
+        //activate constant shooting after shooting once
+        InvokeRepeating(nameof(constantShoot), shootDelay, shootDelay);
+    }
+
+    void constantShoot()
+    {
+        if (!isRotating)
+        {
+            GameObject projectile = Instantiate(projectilePrefab, transform.parent, false);
+            projectile.transform.position = transform.position;
+            projectile.transform.rotation = transform.rotation;
+            projectile.GetComponent<Rigidbody2D>().linearVelocity = transform.up * speed;
+        }
     }
 }
