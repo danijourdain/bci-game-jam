@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class FollowPath : MonoBehaviour
 {
     private static WaitForSeconds _waitForSeconds5 = new(5);
