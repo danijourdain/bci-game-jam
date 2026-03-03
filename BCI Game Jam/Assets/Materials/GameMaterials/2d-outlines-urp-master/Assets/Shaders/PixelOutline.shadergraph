@@ -1160,8 +1160,8 @@
     "m_ObjectId": "22d2f9c6c16a4548b5406932f7f9f2d8",
     "m_Title": "Combine Corner Outlines",
     "m_Position": {
-        "x": -1361.0,
-        "y": 2460.0
+        "x": -1361.5999755859375,
+        "y": 2458.39990234375
     }
 }
 
@@ -1195,8 +1195,8 @@
     "m_ObjectId": "247d4dd911b5435ab3c6a199e4c0338c",
     "m_Title": "Combine Texture and Outlines",
     "m_Position": {
-        "x": 911.0,
-        "y": 548.0
+        "x": 910.4000244140625,
+        "y": 546.3999633789063
     }
 }
 
@@ -1493,8 +1493,8 @@
     "m_ObjectId": "2ecfd460a64f4a1785db890fa3e12193",
     "m_Title": "Combine Outlines",
     "m_Position": {
-        "x": -411.0,
-        "y": 1187.0
+        "x": -411.199951171875,
+        "y": 1185.599853515625
     }
 }
 
@@ -2647,7 +2647,7 @@
     "m_Title": "Outline Sample (0, 1)",
     "m_Position": {
         "x": -1124.0,
-        "y": 1478.0
+        "y": 1475.9998779296875
     }
 }
 
@@ -2707,8 +2707,8 @@
     "m_ObjectId": "673cf04d628b44cb9a46c0dc514b0880",
     "m_Title": "Outline Sample (1, 1)",
     "m_Position": {
-        "x": -2135.0,
-        "y": 2021.0
+        "x": -2135.2001953125,
+        "y": 2019.199951171875
     }
 }
 
@@ -2880,8 +2880,8 @@
     "m_ObjectId": "7085a9bdbc074a6ea7cc5aa94dc751a1",
     "m_Title": "Outline Sample (-1, -1)",
     "m_Position": {
-        "x": -2134.0,
-        "y": 2445.0
+        "x": -2134.39990234375,
+        "y": 2443.199951171875
     }
 }
 
@@ -3160,7 +3160,7 @@
     "m_Title": "Outline Sample (-1, 0)",
     "m_Position": {
         "x": -1120.0,
-        "y": 1052.0
+        "y": 1050.39990234375
     }
 }
 
@@ -3798,7 +3798,7 @@
     "m_Title": "Outline Sample (-1, 1)",
     "m_Position": {
         "x": -2128.0,
-        "y": 3307.0
+        "y": 3305.599853515625
     }
 }
 
@@ -3808,8 +3808,8 @@
     "m_ObjectId": "9e5d0a34eadf42f7a3bb111cc6a815b2",
     "m_Title": "Outline Sample (1, -1)",
     "m_Position": {
-        "x": -2133.0,
-        "y": 2870.0
+        "x": -2133.60009765625,
+        "y": 2868.000244140625
     }
 }
 
@@ -4539,8 +4539,8 @@
     "m_ObjectId": "c2a72e5183c94bef922a9b517d7f23f8",
     "m_Title": "Outline Sample (0, -1)",
     "m_Position": {
-        "x": -1123.0,
-        "y": 1906.0
+        "x": -1123.2000732421875,
+        "y": 1903.9998779296875
     }
 }
 
@@ -4757,8 +4757,8 @@
     "m_ObjectId": "d206a0bbcf72446eb86b4e5998ca34b1",
     "m_Title": "Outline Sample (1, 0)",
     "m_Position": {
-        "x": -1121.0,
-        "y": 636.0
+        "x": -1121.5999755859375,
+        "y": 634.3999633789063
     }
 }
 
@@ -5038,8 +5038,8 @@
     "m_ObjectId": "e49bb87aa0d1490f9e2631ccd3e447fc",
     "m_Title": "Color Sample",
     "m_Position": {
-        "x": 314.0,
-        "y": 367.0
+        "x": 313.5999755859375,
+        "y": 365.5999755859375
     }
 }
 

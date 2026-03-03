@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FollowPath
   pathContainer: {fileID: 6018765489045422848}
   moveSpeed: 0.05
-  laneOffset: 1
+  laneOffset: 0.2
 --- !u!114 &6018765489045422848
 MonoBehaviour:
   m_ObjectHideFlags: 0

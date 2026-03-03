@@ -23,7 +23,7 @@ public class FollowPath : MonoBehaviour
 
     private bool isMoving = false;
 
-    public float laneOffset = 1f;
+    public float laneOffset = 0.5f;
     private float veticalOffset = 0.65f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -55,7 +55,7 @@ public class FollowPath : MonoBehaviour
         }
         else
         {
-            newPosition.y = newPosition.y + Random.Range(-veticalOffset, veticalOffset);
+            newPosition.y = newPosition.y + Random.Range(-veticalOffset, veticalOffset)*2;
         }
         
         transform.position = newPosition;
