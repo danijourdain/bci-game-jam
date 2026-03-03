@@ -23,6 +23,9 @@ public class FollowPath : MonoBehaviour
 
     private bool isMoving = false;
 
+    public float laneOffset = 0.5f;
+    private float veticalOffset = 0.65f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,6 +39,7 @@ public class FollowPath : MonoBehaviour
             throw new InvalidArraySizeException("Invalid length for waypoints. Needs to have at least 2 items");
         }
 
+
         GoToBeginning();
     }
 
@@ -43,15 +47,30 @@ public class FollowPath : MonoBehaviour
     {
         waypoints = pathContainer.GetEnemyPath();
         transform.position = waypoints[nextWaypointIndex].transform.position;
+        Vector3 newPosition = transform.position;
+
+        if (nextWaypointIndex == 0 || nextWaypointIndex == 3)
+        {
+            newPosition.x = newPosition.x + Random.Range(-laneOffset, laneOffset);
+        }
+        else
+        {
+            newPosition.y = newPosition.y + Random.Range(-veticalOffset, veticalOffset)*2;
+        }
+        
+        transform.position = newPosition;
         nextWaypointIndex++;
         spriteRenderer.enabled = true;
         isMoving = true;
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, transform.position-waypoints[nextWaypointIndex].transform.position);
+        GetComponent<Rigidbody2D>().linearVelocity = -transform.up * moveSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+        
+        // Move();
     }
 
     private void Move()

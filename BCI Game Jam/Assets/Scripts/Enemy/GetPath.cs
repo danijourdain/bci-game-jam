@@ -5,11 +5,16 @@ using Random = UnityEngine.Random;
 public class GetPath : MonoBehaviour
 {
     // list of all possible path starts
-    [SerializeField] private Transform[] pathStarts;
-    [SerializeField] private Transform pathEnd;
-
+    [SerializeField] public float laneOffset;
+    [SerializeField] public Transform[] pathStarts;
+    [SerializeField] public Transform pathEnd;
+    void Start()
+    {
+        
+    }
     public Transform[] GetEnemyPath(int lane=-1)
     {
+        
         // default value means randomly generated
         if (lane == -1)
         {
@@ -18,6 +23,9 @@ public class GetPath : MonoBehaviour
 
         Debug.Log("Selected Lane " + lane);
 
-        return new Transform[] { pathStarts[lane], pathEnd };
+        Transform pass = pathStarts[lane];
+        
+
+        return new Transform[] { pass, pathEnd };
     }
 }

@@ -1,0 +1,162 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class shoot_and_turn : MonoBehaviour
+{
+    public GameObject projectilePrefab;
+    public float speed = 10f;
+    public float rotationDuration = 0.2f; // rotate over 0.2 seconds
+    private Quaternion startRotation;
+    private Quaternion targetRotation;
+    private float rotationTimer = 0f;
+    private bool isRotating = false;
+    private bool pendingShoot = false; // flag to shoot after rotation
+
+    public float shootDelay = 0.2f; // delay before shooting after rotation
+    public float shootInterval = 0.5f; // interval for constant shooting
+    private float shootTimer = 0f;
+
+    private InputSystem_Actions controls;
+    public int quadrant = 1; // 1: leftmost, 2: left middle, 3: right middle, 4: rightmost
+    private Vector2 forward;
+    private void Awake()
+    {
+        controls = new InputSystem_Actions();
+    }
+
+    private void OnEnable()
+    {
+        controls.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Player.Disable();
+    }
+
+    void Start()
+    {
+        startRotation = transform.rotation;
+        targetRotation = transform.rotation;
+        forward = transform.up;
+
+        controls.Player.pos1.performed += ctx => RotateAndScheduleShoot(59f);
+        controls.Player.pos2.performed += ctx => RotateAndScheduleShoot(16f);
+        controls.Player.pos3.performed += ctx => RotateAndScheduleShoot(-16f);
+        controls.Player.pos4.performed += ctx => RotateAndScheduleShoot(-59f);
+    }
+
+    void Update()
+    {
+        if (isRotating)
+        {
+            rotationTimer += Time.deltaTime;
+            float t = rotationTimer / rotationDuration;
+            t = Mathf.Clamp01(t);
+            transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
+            if (t >= 1f)
+            {
+                isRotating = false;
+            }
+        }
+        else
+        {
+          
+            // If not rotating, ensure the player is shooting constantly
+            shootTimer += Time.deltaTime;
+            if (shootTimer >= shootInterval)
+            {
+                Shoot(quadrant);
+                shootTimer = 0f;
+            }
+        }
+    }
+
+    void RotateAndScheduleShoot(float zAngle)
+    {
+        switch (zAngle)
+        {
+            case 59f:
+                quadrant = 1;
+                break;
+            case 16f:
+                quadrant = 2;
+                break;
+            case -16f:
+                quadrant = 3;
+                break;
+            case -59f:
+                quadrant = 4;
+                break;
+            default:
+                quadrant = 0;
+                break;
+        }
+        startRotation = transform.rotation;
+        targetRotation = Quaternion.Euler(0, 0, zAngle);
+        rotationTimer = 0f;
+        isRotating = true;
+        pendingShoot = true; // mark that we want to shoot after rotation
+    }
+
+    void Shoot(int quadrant)
+    {
+        Transform target;
+        switch (quadrant)
+        {
+            case 1:
+                target = FindClosestEnemyInQuadrant("Enemy", 34f, 90f);
+                break;
+            case 2:
+                target = FindClosestEnemyInQuadrant("Enemy", 0f, 30f);
+                break;
+            case 3:
+                target = FindClosestEnemyInQuadrant("Enemy", -30f, 0f);
+                break;
+            case 4:
+                target = FindClosestEnemyInQuadrant("Enemy", -90f, -34f);
+                break;
+            default:
+                target = null;
+                break;
+        }
+        if (target != null)        {
+            Vector2 direction = (target.position - transform.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+        GameObject projectile = Instantiate(projectilePrefab, transform.parent, false);
+        projectile.transform.position = transform.position;
+        projectile.transform.rotation = transform.rotation;
+        projectile.GetComponent<Rigidbody2D>().linearVelocity = transform.up * speed;
+    }
+    public Transform FindClosestEnemyInQuadrant(string tagName, float minAngle, float maxAngle)
+{
+    GameObject[] enemies = GameObject.FindGameObjectsWithTag(tagName);
+
+    Transform closest = null;
+    float closestDist = Mathf.Infinity;
+
+
+    foreach (GameObject enemy in enemies)
+    {
+        Vector2 dir = enemy.transform.position - transform.position;
+
+        float angle = Vector2.SignedAngle(forward, dir);
+
+        // Check if enemy is inside selected quadrant
+        if (angle >= minAngle && angle <= maxAngle)
+        {
+            float dist = dir.sqrMagnitude;
+
+            if (dist < closestDist)
+            {
+                closestDist = dist;
+                closest = enemy.transform;
+            }
+        }
+    }
+
+    return closest;
+}
+}
