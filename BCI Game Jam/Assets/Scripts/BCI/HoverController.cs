@@ -9,8 +9,8 @@ public class HoverController : MonoBehaviour, IStimuliHoverController
     [SerializeField] private Color selectedColor;
     [SerializeField] private float selectedThickness = 1.3f;
 
-    // public bool isHovered = false;
-    // public bool isSelected = true;
+    public bool isHovered = false;
+    public bool isSelected = true;
 
     private SpriteRenderer hoverSpriteRenderer;
     private Vector3 startingScale;
@@ -28,6 +28,25 @@ public class HoverController : MonoBehaviour, IStimuliHoverController
         }
     }
 
+    void Update()
+    {
+        if(isSelected)
+        {
+            hoverSpriteRenderer.color = selectedColor;
+            hoverGO.localScale = startingScale * selectedThickness;
+        }
+        else if (isHovered)
+        {
+            hoverSpriteRenderer.color = hoverColor;
+            hoverGO.localScale = startingScale * hoverThickness;
+        }
+        else
+        { 
+            hoverSpriteRenderer.color = WHITE;
+            hoverGO.localScale = startingScale;
+        }
+    }
+
     private void Reset()
     {
         Debug.Log("RESETING");
@@ -37,23 +56,25 @@ public class HoverController : MonoBehaviour, IStimuliHoverController
 
     public void SetIsHovered(bool on)
     {
-        if (on)
-        {
-            Debug.Log("HOVERING");
-            hoverSpriteRenderer.color = hoverColor;
-            hoverGO.localScale = startingScale * hoverThickness;
-        }
+        isHovered = on;
+        // if (on)
+        // {
+        //     Debug.Log("HOVERING");
+        //     hoverSpriteRenderer.color = hoverColor;
+        //     hoverGO.localScale = startingScale * hoverThickness;
+        // }
     }
 
 
     public void SetIsSelected(bool on)
     {
-        if (on)
-        {
-            Debug.Log("SELECTING");
-            hoverSpriteRenderer.color = selectedColor;
-            hoverGO.localScale = startingScale * selectedThickness;
-        }
+        isSelected = on;
+        // if (on)
+        // {
+        //     Debug.Log("SELECTING");
+        //     hoverSpriteRenderer.color = selectedColor;
+        //     hoverGO.localScale = startingScale * selectedThickness;
+        // }
     }
 
     public void SetThickness(float thickness)
