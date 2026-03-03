@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Cognixion;
 using Cognixion.Services;
@@ -7,13 +6,14 @@ using Cognixion.Services.BCI;
 using UnityEngine;
 
 [RequireComponent(typeof(DelayAction))]
-public class BCIController: MonoBehaviour
+public class BCIController : MonoBehaviour
 {
-    // delay before starting flashing
-    [SerializeField] private const float BCI_START_DELAY = 2f;
-    // delay before restarting after selection
-    [SerializeField] private const float BCI_RESTART_DELAY = 0.5f;
-    
+    // time to wait before starting classification for the first time
+    private const float BCI_START_DELAY = 2f;
+
+    // time to wait before restarting classification after a selection
+    private const float BCI_RESTART_DELAY = 0.5f;
+
     // reference to script that allows delaying action by amount of time
     // must be attached to the same game object as this script
     private DelayAction _delayAction;
@@ -32,7 +32,8 @@ public class BCIController: MonoBehaviour
     // must have length >= _stimuliList length
     [SerializeField] private List<float> _frequencies;
 
-    #region Unity Lifecycle
+
+    #region Unity Lifecycle 
 
     private void Awake()
     {
@@ -46,7 +47,7 @@ public class BCIController: MonoBehaviour
         _bciTool.SampleRate = BCISettings.SamplingRateHz;
     }
 
-     private void OnEnable()
+    private void OnEnable()
     {
         // subscribe to events with our own handlers
         _bciTool.OnStimuliFlashingChanged += HandleStimuliFlashingChanged;
@@ -119,16 +120,20 @@ public class BCIController: MonoBehaviour
         switch (stimulusID)
         {
             case 0:
-                throw new NotImplementedException();
+                // left
+                // GridManager.Instance.Move(Vector2Int.left);
                 break;
             case 1:
-                throw new NotImplementedException();
+                // right
+                // GridManager.Instance.Move(Vector2Int.right);
                 break;
             case 2:
-                throw new NotImplementedException();
+                // up
+                // GridManager.Instance.Move(Vector2Int.up);
                 break;
             case 3:
-                throw new NotImplementedException();
+                // down
+                // GridManager.Instance.Move(Vector2Int.down);
                 break;
             default:
                 Debug.Log("Invalid ID selected");
@@ -164,5 +169,4 @@ public class BCIController: MonoBehaviour
         _singletons.MessageHandler.SendBCIConfigurationMessage(config);
     }
     #endregion
-
 }
