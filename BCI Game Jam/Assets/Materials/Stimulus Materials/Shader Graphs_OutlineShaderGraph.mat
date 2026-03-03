@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4935fe44203e2684a9145ccde679d284, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5bad241cd6df1f34fa1c95229f09dc24, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -53,9 +53,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _IsHovered: 0
+    - _IsSelected: 0
+    - _boolidk: 0
     m_Colors:
     - White: {r: 1, g: 1, b: 1, a: 1}
-    - _HoverColor: {r: 0.9160466, g: 1, b: 0, a: 1}
+    - _HoverColor: {r: 0, g: 1, b: 0.71347237, a: 1}
+    - _HoverColor_1: {r: 0.29255342, g: 0, b: 1, a: 1}
+    - _SelectedColor: {r: 1, g: 0.011764705, b: 0.7679196, a: 1}
+    - _broidk: {r: 0, g: 0.971216, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
