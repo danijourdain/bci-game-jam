@@ -541,6 +541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   Max_HP: 10
   current_HP: 0
+  damage_reduction: 0
+  dodge_chance: 0
 --- !u!58 &527841360
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -594,6 +596,7 @@ MonoBehaviour:
   rotationDuration: 0.2
   shootDelay: 0.2
   shootInterval: 0.5
+  damage: 1
   quadrant: 1
 --- !u!212 &527841362
 SpriteRenderer:
@@ -1209,6 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6208f36d335866141b6f8625f64be3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BCIController
+  _shootAndTurn: {fileID: 527841361}
   _stimuliList:
   - {fileID: 6918823858909776450}
   - {fileID: 187931780}

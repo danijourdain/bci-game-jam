@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class shoot_and_turn : MonoBehaviour
 {
@@ -74,7 +73,7 @@ public class shoot_and_turn : MonoBehaviour
         }
     }
 
-    void RotateAndScheduleShoot(float zAngle)
+    public void RotateAndScheduleShoot(float zAngle)
     {
         switch (zAngle)
         {

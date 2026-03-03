@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cognixion;
 using Cognixion.Services;
@@ -23,6 +24,8 @@ public class BCIController : MonoBehaviour
 
     // reference to service locator singleton that provides services for Cognixion apps
     private ISingletons _singletons;
+
+    [SerializeField] private shoot_and_turn _shootAndTurn;
 
     // list of stimuli to be flashed and classified
     // max length: 13
@@ -117,28 +120,36 @@ public class BCIController : MonoBehaviour
     // handle the IBCIClassificationTool StimuliIDSelected event
     private void HandleStimuliIDSelected(int stimulusID)
     {
-        switch (stimulusID)
+        if(true)    // add boolean here for handling if you're in game or selecting reward
         {
-            case 0:
-                // left
-                // GridManager.Instance.Move(Vector2Int.left);
-                break;
-            case 1:
-                // right
-                // GridManager.Instance.Move(Vector2Int.right);
-                break;
-            case 2:
-                // up
-                // GridManager.Instance.Move(Vector2Int.up);
-                break;
-            case 3:
-                // down
-                // GridManager.Instance.Move(Vector2Int.down);
-                break;
-            default:
-                Debug.Log("Invalid ID selected");
-                break;
+            switch (stimulusID)
+            {
+                case 0:
+                    // lane 1
+                    _shootAndTurn.RotateAndScheduleShoot(59f);
+                    break;
+                case 1:
+                    //lane 2
+                    _shootAndTurn.RotateAndScheduleShoot(16f);
+                    break;
+                case 2:
+                    //lane 3
+                    _shootAndTurn.RotateAndScheduleShoot(-16f);
+                    break;
+                case 3:
+                    //lane 4
+                    _shootAndTurn.RotateAndScheduleShoot(-59f);
+                    break;
+                default:
+                    Debug.Log("Invalid ID selected");
+                    break;
+            }
         }
+        else
+        {
+            throw new NotImplementedException("Powerups are not implemented yet");
+        }
+        
 
         // pause before resuming flashing
         _delayAction.DelayEvent(BCI_RESTART_DELAY, () =>

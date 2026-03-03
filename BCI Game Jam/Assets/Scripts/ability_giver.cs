@@ -8,8 +8,8 @@ public class ability_giver : MonoBehaviour
     
     void health_example(int amount)
     {
-        health_script.max_health += amount;
-        health_script.current_health += amount;
+        health_script.Max_HP += amount;
+        health_script.current_HP += amount;
         // the health script has max_health, current_health, damage_reduction, and dodge_chance. 
     }
 
