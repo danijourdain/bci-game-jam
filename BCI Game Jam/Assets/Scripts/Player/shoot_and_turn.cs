@@ -16,6 +16,8 @@ public class shoot_and_turn : MonoBehaviour
     public float shootInterval = 0.5f; // interval for constant shooting
     private float shootTimer = 0f;
 
+    public float damage = 1f; // damage dealt by the projectile
+
     private InputSystem_Actions controls;
     public int quadrant = 1; // 1: leftmost, 2: left middle, 3: right middle, 4: rightmost
     private Vector2 forward;
@@ -66,7 +68,7 @@ public class shoot_and_turn : MonoBehaviour
             shootTimer += Time.deltaTime;
             if (shootTimer >= shootInterval)
             {
-                Shoot(quadrant);
+                shoot_and_turn.Shoot(transform, quadrant, speed, damage, projectilePrefab);
                 shootTimer = 0f;
             }
         }
@@ -99,22 +101,22 @@ public class shoot_and_turn : MonoBehaviour
         pendingShoot = true; // mark that we want to shoot after rotation
     }
 
-    void Shoot(int quadrant)
+    public static void Shoot(Transform transform, int quadrant, float speed = 10f, float damage = 1f, GameObject projectilePrefab = null)
     {
         Transform target;
         switch (quadrant)
         {
             case 1:
-                target = FindClosestEnemyInQuadrant("Enemy", 34f, 90f);
+                target = shoot_and_turn.FindClosestEnemyInQuadrant("Enemy", 34f, 90f, transform);
                 break;
             case 2:
-                target = FindClosestEnemyInQuadrant("Enemy", 0f, 30f);
+                target = shoot_and_turn.FindClosestEnemyInQuadrant("Enemy", 0f, 30f, transform);
                 break;
             case 3:
-                target = FindClosestEnemyInQuadrant("Enemy", -30f, 0f);
+                target = shoot_and_turn.FindClosestEnemyInQuadrant("Enemy", -30f, 0f, transform);
                 break;
             case 4:
-                target = FindClosestEnemyInQuadrant("Enemy", -90f, -34f);
+                target = shoot_and_turn.FindClosestEnemyInQuadrant("Enemy", -90f, -34f, transform);
                 break;
             default:
                 target = null;
@@ -129,9 +131,13 @@ public class shoot_and_turn : MonoBehaviour
         projectile.transform.position = transform.position;
         projectile.transform.rotation = transform.rotation;
         projectile.GetComponent<Rigidbody2D>().linearVelocity = transform.up * speed;
+        // Set damage on the projectile
+        bullet projScript = projectile.GetComponent<bullet>();
+        projScript.damage_amount = damage;
     }
-    public Transform FindClosestEnemyInQuadrant(string tagName, float minAngle, float maxAngle)
+    public static Transform FindClosestEnemyInQuadrant(string tagName, float minAngle, float maxAngle, Transform transform = null)
 {
+    Vector2 forward = new Vector2(0, 1); // default forward direction (up)
     GameObject[] enemies = GameObject.FindGameObjectsWithTag(tagName);
 
     Transform closest = null;
