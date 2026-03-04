@@ -22,8 +22,9 @@ public class ability : MonoBehaviour
 
     // abilites that fire unique magic projectiles and their toggles : 
     public int sawblade_level = 0; // fires a sawblade that bounces off walls and hits multiple enemies
-    public float sawblade_cooldown = 5f; // cooldown for the sawblade ability
+    public float sawblade_cooldown = 10f; // cooldown for the sawblade ability
     public float sawblade_timer = 0f; // timer for the sawblade ability
+    public GameObject sawblade_projectile; // prefab for the sawblade projectile
     public int ice_shard_level = 0; // fires an ice shard that slows enemies
     public float ice_shard_cooldown = 5f; // cooldown for the ice shard ability
     public float ice_shard_timer = 0f; // timer for the ice shard ability
@@ -67,8 +68,9 @@ public class ability : MonoBehaviour
             if (sawblade_timer >= sawblade_cooldown)
             {
                 // fire sawblade projectile
-                shoot_and_turn.Shoot(transform, quadrant, speed, damage, projectilePrefab);
+                shoot_and_turn.Shoot(transform, quadrant, 1, magicDamage, sawblade_projectile);
                 sawblade_timer = 0f;
+                Debug.Log("Fired sawblade projectile!");
             }
 
         }
@@ -77,12 +79,6 @@ public class ability : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        shootTimer += Time.deltaTime;
-            if (shootTimer >= attackSpeed)
-            {
-                quadrant = player.GetComponent<shoot_and_turn>().quadrant;
-                shoot_and_turn.Shoot(transform, quadrant, speed, damage, projectilePrefab);
-                shootTimer = 0f;
-            }
+        sawblade();
     }
 }
