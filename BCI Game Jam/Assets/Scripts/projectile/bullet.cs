@@ -12,4 +12,18 @@ public class bullet: MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("HIT AN ENEMY");
+            other.gameObject.GetComponent<enemy>().TakeDamage(damage_amount);
+            Destroy(gameObject);
+        }
+    }
 }

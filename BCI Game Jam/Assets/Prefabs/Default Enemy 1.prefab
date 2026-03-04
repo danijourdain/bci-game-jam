@@ -10,10 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5791713026364790777}
   - component: {fileID: 7448414253181632584}
+  - component: {fileID: 1587851643012576655}
   - component: {fileID: 444579344962874690}
+  - component: {fileID: 6187944629647514978}
   - component: {fileID: 6786797776712035556}
   m_Layer: 0
-  m_Name: Default Enemy
+  m_Name: Default Enemy 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,6 +95,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1587851643012576655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258355181097237826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ecb70d5d298584c90aab9935f6155f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FollowPath
+  pathContainer: {fileID: 0}
+  moveSpeed: 0.05
+  laneOffset: 0.2
 --- !u!61 &444579344962874690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123,7 +140,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -139,6 +156,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.64, y: 0.61}
   m_EdgeRadius: 0
+--- !u!114 &6187944629647514978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258355181097237826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ca93b2dea721c4d834deb49804f1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  damage_amount: 1
+  HP: 1
 --- !u!50 &6786797776712035556
 Rigidbody2D:
   serializedVersion: 5
@@ -147,7 +178,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8258355181097237826}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

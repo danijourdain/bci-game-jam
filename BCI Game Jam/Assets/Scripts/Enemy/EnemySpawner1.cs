@@ -5,13 +5,13 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Information")]
     [SerializeField] private EnemySpawnData[] enemies;
-    [SerializeField] private int maxEnemiesAtOnce = 20;
+    // [SerializeField] private int maxEnemiesAtOnce = 20;
 
     [Header("Path Information")]
     [SerializeField] private Transform[] pathStarts; 
     [SerializeField] private Transform pathEnd;
 
-    private int currentEnemyCount = 0;
+    // private int currentEnemyCount = 0;
 
     void Start()
     {
@@ -26,13 +26,10 @@ public class EnemySpawner : MonoBehaviour
     {
         while(true)
         {
-            Debug.Log("B");
-            yield return new WaitForSeconds(data.spawnInterval);
-            Debug.Log("C");
+            yield return new WaitForSeconds(data.spawnInterval);    // error here
 
-            if(currentEnemyCount < maxEnemiesAtOnce && ShouldSpawn(data.spawnChance))
+            if(ShouldSpawn(data.spawnChance))
             {
-                Debug.Log("D");
                 SpawnEnemy(data);
             }
         }
@@ -56,10 +53,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy(EnemySpawnData data)
     {
-        Debug.Log("SPAWNING");
-        GameObject newEnemy = Instantiate(data.enemyPrefab, transform, false);
-        // GetPath path = newEnemy.GetComponent<GetPath>();
-        // path.pathStarts = pathStarts;
-        // path.pathEnd = pathEnd;
+        Instantiate(data.enemyPrefab, transform, false);
     }
 }

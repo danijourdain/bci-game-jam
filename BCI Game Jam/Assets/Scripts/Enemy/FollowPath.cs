@@ -49,11 +49,11 @@ public class FollowPath : MonoBehaviour
 
         if (nextWaypointIndex == 0 || nextWaypointIndex == 3)
         {
-            newPosition.x = newPosition.x + Random.Range(-laneOffset, laneOffset);
+            newPosition.x += Random.Range(-laneOffset, laneOffset);
         }
         else
         {
-            newPosition.y = newPosition.y + Random.Range(-veticalOffset, veticalOffset)*2;
+            newPosition.y += Random.Range(-veticalOffset, veticalOffset)*2;
         }
         
         transform.position = newPosition;
@@ -65,49 +65,49 @@ public class FollowPath : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    // void Update()
+    // {
         
-        // Move();
-    }
+    //     // Move();
+    // }
 
-    private void Move()
-    {
-        if(!isMoving)
-        {
-            return;
-        }
+    // private void Move()
+    // {
+    //     if(!isMoving)
+    //     {
+    //         return;
+    //     }
 
-        // stop if reaching last waypoint
-        if(nextWaypointIndex > waypoints.Length - 1)
-        {
-            FinishMove();
-            return;
-        }
+    //     // stop if reaching last waypoint
+    //     if(nextWaypointIndex > waypoints.Length - 1)
+    //     {
+    //         FinishMove();
+    //         return;
+    //     }
 
-        transform.position = Vector3.MoveTowards(transform.position, waypoints[nextWaypointIndex].transform.position, moveSpeed * Time.deltaTime);
+    //     transform.position = Vector3.MoveTowards(transform.position, waypoints[nextWaypointIndex].transform.position, moveSpeed * Time.deltaTime);
 
-        // if enemy reaches position of waypoint, increase index
-        if(transform.position == waypoints[nextWaypointIndex].transform.position)
-        {
-            nextWaypointIndex++;
-        }
-    }
+    //     // if enemy reaches position of waypoint, increase index
+    //     if(transform.position == waypoints[nextWaypointIndex].transform.position)
+    //     {
+    //         nextWaypointIndex++;
+    //     }
+    // }
 
-    private void FinishMove()
-    {
-        isMoving = false;
-        spriteRenderer.enabled = false;
-        transform.position = new Vector3(0f, 0f, 0f);
-            Debug.Log("Finished moving through waypoint");
+    // private void FinishMove()
+    // {
+    //     isMoving = false;
+    //     spriteRenderer.enabled = false;
+    //     transform.position = new Vector3(0f, 0f, 0f);
+    //         Debug.Log("Finished moving through waypoint");
 
-        StartCoroutine(Restart());
-    }
+    //     StartCoroutine(Restart());
+    // }
 
-    private IEnumerator Restart()
-    {
-        yield return _waitForSeconds5;
-        nextWaypointIndex = 0;
-        GoToBeginning();
-    }
+    // private IEnumerator Restart()
+    // {
+    //     yield return _waitForSeconds5;
+    //     nextWaypointIndex = 0;
+    //     GoToBeginning();
+    // }
 }
