@@ -2,7 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class enemy : MonoBehaviour
+public class enemy : MonoBehaviour, IBaseEnemy 
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float damage_amount = 1.0f; // amount of damage this enemy does to the player

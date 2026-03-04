@@ -22,7 +22,6 @@ public class GetPath : MonoBehaviour
         }
         else
         {
-            Debug.Log("SETUP " + pathStarts.Length);
             Instance = this;
             staticPathStarts = pathStarts;
             staticPathEnd = pathEnd;
@@ -35,13 +34,8 @@ public class GetPath : MonoBehaviour
         // default value means randomly generated
         if (lane == -1)
         {
-            Debug.Log("AAAAAAAA" + staticPathStarts.Length);
-            Debug.Log("ksdjahflkashdflk" + lane);
             lane = Random.Range(0, staticPathStarts.Length);
-            Debug.Log("B: " + lane);
         }
-
-        Debug.Log("Selected Lane " + lane);
 
         Transform pass = staticPathStarts[lane];
         

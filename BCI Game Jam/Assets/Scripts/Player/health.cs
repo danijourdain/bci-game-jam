@@ -35,4 +35,12 @@ public class health : MonoBehaviour
             current_HP = Max_HP;
         }
     }
+
+    public void Heal(float healAmount)
+    {
+        if(current_HP < Max_HP)
+        {
+            current_HP += healAmount;
+        }
+    }
 }
