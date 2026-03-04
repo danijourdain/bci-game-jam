@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1608557936249271512}
   - component: {fileID: 8739747967958397252}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: placebullet_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 6498792925688175190}
   - component: {fileID: 1176033769262141677}
   - component: {fileID: 504938156500737771}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::bullet
   despawnTimer: 5
   damage_amount: 1
+  piercing: 0
 --- !u!61 &504938156500737771
 BoxCollider2D:
   m_ObjectHideFlags: 0
