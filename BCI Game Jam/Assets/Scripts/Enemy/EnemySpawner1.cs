@@ -1,41 +1,65 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField]
-    private GameObject swarmPrefab;
-    [SerializeField]
-    private GameObject enemyPrefab;
-    [SerializeField]
-    private float spawnTimer = 3.5f;
-    [SerializeField]
-    private float enemySpawnInterval = 10f;
-    [SerializeField]
-    private bool horizontalSpawn = true;
+    [Header("Enemy Information")]
+    [SerializeField] private EnemySpawnData[] enemies;
+    [SerializeField] private int maxEnemiesAtOnce = 20;
 
-    [SerializeField]
-    public Transform[] pathStarts; 
-    [SerializeField]
-    public Transform pathEnd;
-    void Update()
+    [Header("Path Information")]
+    [SerializeField] private Transform[] pathStarts; 
+    [SerializeField] private Transform pathEnd;
+
+    private int currentEnemyCount = 0;
+
+    void Start()
     {
-        spawnTimer -= Time.deltaTime;
-        if (spawnTimer <= 0)
+        foreach (var enemyData in enemies)
         {
-            spawnEnemies(spawnTimer, swarmPrefab);
-            spawnTimer = enemySpawnInterval;
+            Debug.Log("A");
+            StartCoroutine(SpawnEnemyCoroutine(enemyData));
         }
     }
 
-    private void spawnEnemies(float delay, GameObject enemy)
+    private IEnumerator SpawnEnemyCoroutine(EnemySpawnData data)
     {
-        GameObject newEnemy = Instantiate(enemy, transform, false);
-        GetPath path = newEnemy.GetComponent<GetPath>();
-        path.pathStarts = pathStarts;
-        path.pathEnd = pathEnd;
+        while(true)
+        {
+            Debug.Log("B");
+            yield return new WaitForSeconds(data.spawnInterval);
+            Debug.Log("C");
+
+            if(currentEnemyCount < maxEnemiesAtOnce && ShouldSpawn(data.spawnChance))
+            {
+                Debug.Log("D");
+                SpawnEnemy(data);
+            }
+        }
+    }
+
+    private bool ShouldSpawn(float chance)
+    {
+        return Random.value <= chance;
+    }
+
+    // void Update()
+    // {
+    //     spawnTimer -= Time.deltaTime;
+    //     if (spawnTimer <= 0)
+    //     {
+
+    //         spawnEnemies(spawnTimer, enemyTypes);
+    //         spawnTimer = enemySpawnInterval;
+    //     }
+    // }
+
+    private void SpawnEnemy(EnemySpawnData data)
+    {
+        Debug.Log("SPAWNING");
+        GameObject newEnemy = Instantiate(data.enemyPrefab, transform, false);
+        // GetPath path = newEnemy.GetComponent<GetPath>();
+        // path.pathStarts = pathStarts;
+        // path.pathEnd = pathEnd;
     }
 }

@@ -7,9 +7,6 @@ public class FollowPath : MonoBehaviour
 {
     private static WaitForSeconds _waitForSeconds5 = new(5);
 
-    // path object
-    [SerializeField] private GetPath pathContainer;
-
     // walk speed
     [SerializeField] private float moveSpeed = 0.05f;
 
@@ -31,7 +28,7 @@ public class FollowPath : MonoBehaviour
     void Start()
     {
         // get waypoint from Path
-        waypoints = pathContainer.GetEnemyPath();
+        waypoints = GetPath.GetEnemyPath();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -46,7 +43,7 @@ public class FollowPath : MonoBehaviour
 
     private void GoToBeginning()
     {
-        waypoints = pathContainer.GetEnemyPath();
+        waypoints = GetPath.GetEnemyPath();
         transform.position = waypoints[nextWaypointIndex].transform.position;
         Vector3 newPosition = transform.position;
 
