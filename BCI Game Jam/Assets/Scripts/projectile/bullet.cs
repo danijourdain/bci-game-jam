@@ -21,7 +21,6 @@ public class bullet: MonoBehaviour
         }
         else if (other.CompareTag("Enemy"))
         {
-            Debug.Log("HIT AN ENEMY");
             other.gameObject.GetComponent<enemy>().TakeDamage(damage_amount);
             Destroy(gameObject);
         }

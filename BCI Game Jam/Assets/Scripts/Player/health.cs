@@ -25,7 +25,6 @@ public class health : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        Debug.Log("PLAYER HIT");
         if(!ShouldDodge())
         {
             current_HP -= damageAmount * (1 - damage_reduction);

@@ -17,7 +17,6 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (var enemyData in enemies)
         {
-            Debug.Log("A");
             StartCoroutine(SpawnEnemyCoroutine(enemyData));
         }
     }

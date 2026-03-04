@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class enemy : MonoBehaviour
@@ -16,9 +17,8 @@ public class enemy : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("ENEMY COLLISION WITH " + other.gameObject.name);
         if (other.gameObject.CompareTag("Wall"))
         {
             Destroy(gameObject);
