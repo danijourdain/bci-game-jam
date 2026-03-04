@@ -1213,16 +1213,17 @@ MonoBehaviour:
   speed: 10
   quadrant: 0
   attack_script: {fileID: 527841361}
-  sawblade_level: 1
+  sawblade_level: 0
   sawblade_cooldown: 5
   sawblade_timer: 0
   sawblade_projectile: {fileID: 7848658160920619835, guid: 2c063693b06e50e438136eebd429e9ee, type: 3}
   ice_shard_level: 0
   ice_shard_cooldown: 5
   ice_shard_timer: 0
-  plasma_ball_level: 0
+  plasma_ball_level: 1
   plasma_ball_cooldown: 5
   plasma_ball_timer: 0
+  plasma_ball_projectile: {fileID: 7848658160920619835, guid: 83a58264b93ea974e8f9d4ae82fcbb41, type: 3}
   electricity_charge_level: 0
   electricity_charge_cooldown: 5
   electricity_charge_timer: 0
