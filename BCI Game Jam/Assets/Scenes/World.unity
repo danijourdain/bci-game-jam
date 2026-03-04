@@ -1205,7 +1205,7 @@ MonoBehaviour:
   accuracy: 0
   shootTimer: 0
   lifeSteal: 0
-  magicDamage: 0
+  magicDamage: 10
   cooldownReduction: 0
   is_available: 1
   projectilePrefab: {fileID: 7848658160920619835, guid: 6b0a4c9deef394948854929a53805b20, type: 3}
