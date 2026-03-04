@@ -31,6 +31,7 @@ public class ability : MonoBehaviour
     public int plasma_ball_level = 0; // fires a fireball that explodes on impact, dealing area damage
     public float plasma_ball_cooldown = 5f; // cooldown for the plasma ball ability
     public float plasma_ball_timer = 0f; // timer for the plasma ball ability
+    public GameObject plasma_ball_projectile; // prefab for the plasma ball projectile
     public int electricity_charge_level = 0; // fires a lightning bolt that chains between enemies
     public float electricity_charge_cooldown = 5f; // cooldown for the electricity charge ability
     public float electricity_charge_timer = 0f; // timer for the electricity charge ability
@@ -68,9 +69,24 @@ public class ability : MonoBehaviour
             if (sawblade_timer >= sawblade_cooldown)
             {
                 // fire sawblade projectile
-                shoot_and_turn.Shoot(transform, quadrant, 1, magicDamage, sawblade_projectile);
                 sawblade_timer = 0f;
-                Debug.Log("Fired sawblade projectile!");
+                shoot_and_turn.Shoot(transform, quadrant, 1, magicDamage, sawblade_projectile);
+            }
+
+        }
+    }
+    void plasmaBall()
+    {
+        // code for firing a plasma ball projectile that explodes on impact, dealing area damage
+        if (plasma_ball_level > 0)
+        {
+            // instantiate plasma ball projectile and set its properties based on plasma_ball_level
+            plasma_ball_timer += Time.deltaTime;
+            if (plasma_ball_timer >= plasma_ball_cooldown)
+            {
+                // fire plasma ball projectile
+                plasma_ball_timer = 0f;
+                shoot_and_turn.Shoot(transform, quadrant, 1, magicDamage, plasma_ball_projectile);
             }
 
         }
@@ -80,5 +96,6 @@ public class ability : MonoBehaviour
     void Update()
     {
         sawblade();
+        plasmaBall();
     }
 }
