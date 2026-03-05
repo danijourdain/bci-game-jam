@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PlayerXP : MonoBehaviour
 {
     [SerializeField] private FillBar xpBar;
+
+    public static event Action OnLevelUp;
 
     private float currentXP = 0f;
     private readonly float xpToNextLevel = 100f;
@@ -37,5 +40,8 @@ public class PlayerXP : MonoBehaviour
         currentXP -= xpToNextLevel;
         xpBar.SetFill(currentXP, xpToNextLevel);
         Debug.Log("LEVEL UP!");
+
+        // trigger level up event
+        OnLevelUp?.Invoke();
     }
 }

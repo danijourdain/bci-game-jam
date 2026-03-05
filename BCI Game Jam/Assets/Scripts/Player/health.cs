@@ -3,7 +3,7 @@ using UnityEngine;
 public class health : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public float Max_HP = 10; 
+    public float Max_HP = 10f; 
     public float current_HP;
     public float damage_reduction = 0f; // percentage of damage reduced (0 = no reduction, 1 = immune)
     public float dodge_chance = 0f; // percentage chance to completely dodge an attack (0 = no dodge, 1 = always dodge)
@@ -46,7 +46,6 @@ public class health : MonoBehaviour
 
     public void HandleHeal(float healAmount)
     {
-        Debug.Log("HANDLING HEAL FROM ENEMY");
         if(current_HP < Max_HP)
         {
             current_HP += healAmount;

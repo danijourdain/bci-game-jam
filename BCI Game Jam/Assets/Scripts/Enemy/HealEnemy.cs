@@ -11,7 +11,6 @@ public class HealEnemy : MonoBehaviour, IBaseEnemy
         HP -= damageAmount;
         if (HP <= 0f)
         {
-            Debug.Log("KILLED HEAL ENEMY");
             EnemyEvents.HealPlayer(1f); 
             Destroy(gameObject);
         }

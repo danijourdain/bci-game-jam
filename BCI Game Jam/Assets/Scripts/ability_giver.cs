@@ -1,20 +1,73 @@
+using System;
+using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
+[RequireComponent(typeof(health))]
+[RequireComponent(typeof(ability))]
+[RequireComponent(typeof(shoot_and_turn))]
 public class ability_giver : MonoBehaviour
 {
-    public health health_script;
-    public ability ability_script;
-    public shoot_and_turn attack_script;
+    private health health_script;
+    private ability ability_script;
+    private shoot_and_turn attack_script;
+
+    private List<Action> powerups;
     
-    void health_example(int amount)
+    void Start()
     {
+        health_script = GetComponent<health>();
+        ability_script = GetComponent<ability>();
+        attack_script = GetComponent<shoot_and_turn>();
+
+        // register all possible powerups
+        powerups = new List<Action>
+        {
+            health_example,
+            attack_example,
+            ability_example,
+            sharp_bullets,
+            rapid_fire,
+            vampiric_bullets,
+            cooled_off,
+            increased_magic,
+            chunky,
+            tanky,
+            slippery,
+            IncreasePlasmaBallLevel,
+            IncreaseSawbladeLevel
+        };
+    }
+
+    void OnEnable()
+    {
+        PlayerXP.OnLevelUp += SelectPowerup;  // subscribe
+    }
+
+    void OnDisable()
+    {
+        PlayerXP.OnLevelUp -= SelectPowerup;  // subscribe  // always unsubscribe!
+    }
+
+    private void SelectPowerup()
+    {
+        int index = UnityEngine.Random.Range(0, powerups.Count);
+        Action chosen = powerups[index];
+        Debug.Log("Powerup selected: " + chosen.Method.Name);
+        chosen.Invoke();
+    }
+
+    void health_example()
+    {
+        float amount = 3f;
         health_script.Max_HP += amount;
         health_script.current_HP += amount;
         // the health script has max_health, current_health, damage_reduction, and dodge_chance. 
     }
 
-    void attack_example(float amount)
+    void attack_example()
     {
+        float amount = 1f;
         attack_script.damage += amount;
         // the attack script has damage, shoot_interval, shoot_delay, speed (bullet speed)
         // rotation_duration,  and range.
@@ -23,31 +76,34 @@ public class ability_giver : MonoBehaviour
     void ability_example()
     {
         // the ability script has damage, attackSpeed, accuracy and is_available
-        ability_script.attackSpeed -= 1f; // reduce cooldown by 1 second
+        attack_script.shootInterval *= 0.9f; // reduce cooldown by 10%
     }
 
     void sharp_bullets()
     {
-        ability_script.damage += 1f; // increase damage by 1
+        attack_script.damage += 1f; // increase damage by 1
     }
 
     void rapid_fire()
     {
-        ability_script.attackSpeed -= 0.1f; // reduce cooldown by 0.1 seconds
+        attack_script.shootInterval *= 0.9f; // reduce cooldown by 10%
     }
 
     void vampiric_bullets()
     {
+        throw new NotImplementedException();
         ability_script.lifeSteal += 0.1f; // increase life steal by 10%
     }
 
     void cooled_off()
     {
+        throw new NotImplementedException();
         ability_script.cooldownReduction += 0.1f; // increase cooldown reduction by 10%
     }
 
     void increased_magic()
     {
+        throw new NotImplementedException();
         ability_script.magicDamage += 1f; // increase magic damage by 1
     }
 
@@ -59,25 +115,27 @@ public class ability_giver : MonoBehaviour
 
     void tanky()
     {
-        health_script.damage_reduction += 0.1f; // increase damage reduction by 10%
+        if(health_script.damage_reduction < 1.0 ) { // increase damage reduction by 10% 
+            health_script.damage_reduction += 0.1f;
+        }
     }
 
     void slippery()
     {
-        health_script.dodge_chance += 0.1f; // increase dodge chance by 10%
+        if(health_script.dodge_chance < 1.0 ) { // increase dodge chance by 10% 
+            health_script.dodge_chance += 0.1f;
+        }
     }
 
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void IncreaseSawbladeLevel()
     {
-        
+        ability_script.sawblade_level++;
+        ability_script.sawblade_cooldown *= 0.9f;   // decrease cooldown by 10%
     }
 
-    // Update is called once per frame
-    void Update()
+    void IncreasePlasmaBallLevel()
     {
-        
+        ability_script.plasma_ball_level++;
+        ability_script.plasma_ball_cooldown *= 0.9f;  
     }
 }

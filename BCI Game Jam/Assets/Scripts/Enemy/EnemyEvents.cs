@@ -13,7 +13,6 @@ public static class EnemyEvents
 
     public static void HealPlayer(float amount)
     {
-        Debug.Log("INVOKING");
         OnHealEnemyKilled?.Invoke(amount);
     }
 }
