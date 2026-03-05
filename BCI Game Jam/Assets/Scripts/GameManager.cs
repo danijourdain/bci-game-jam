@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     private void EnableLevelUpScreen()
     {
         currentlyLevellingUp = true;
+        DisableGameplay();
         levelUpUI.SetActive(true);
         levelUpUI.GetComponent<LevelUpScreen>().DisplayPowerupsForSelect();
     }
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
     public void SelectPowerup(int index)
     {
         levelUpUI.GetComponent<LevelUpScreen>().OnBCISelect(index);
+        ResumeGame();
     }
 
     void Update()
@@ -74,23 +76,33 @@ public class GameManager : MonoBehaviour
     {
         // enable game over UI
         gameOverUI.SetActive(true);
-        
+
         // begin countdown
         gameOverUI.GetComponent<RestartCountdown>().BeginTimer();
+        DisableGameplay();
 
+        // stop BCI stuff
+        bciController.StopFlashing();
+    }
+
+    private void DisableGameplay()
+    {
         // disable enemies
         enemySpawner.Stop();
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach(GameObject enemy in enemies)
+        foreach (GameObject enemy in enemies)
         {
             Destroy(enemy);
         }
 
         // disable shooting
         shooter.Stop();
-        
-        // stop BCI stuff
-        // bciController.StopFlashing();
+    }
+
+    private void ResumeGame()
+    {
+        enemySpawner.Resume();
+        shooter.Resume();
     }
 
     public void StartGame()

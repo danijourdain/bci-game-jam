@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class shoot_and_turn : MonoBehaviour
@@ -176,4 +177,9 @@ public class shoot_and_turn : MonoBehaviour
 
     return closest;
 }
+
+    internal void Resume()
+    {
+        shouldShoot = true;
+    }
 }
