@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private BCIController bciController;
     [SerializeField] private EnemySpawner enemySpawner; 
+    [SerializeField] private shoot_and_turn shooter;
 
     void Awake()
     {
@@ -50,6 +51,9 @@ public class GameManager : MonoBehaviour
         {
             Destroy(enemy);
         }
+
+        // disable shooting
+        shooter.Stop();
         
         // stop BCI stuff
         // bciController.StopFlashing();
@@ -59,6 +63,8 @@ public class GameManager : MonoBehaviour
     {
         // reset player health
         // reset abilities
+        shooter.Start();
+
         // restart spawning
         enemySpawner.Start();
 

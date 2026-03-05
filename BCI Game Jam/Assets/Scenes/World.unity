@@ -985,7 +985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemies:
   - {fileID: 11400000, guid: b06b4bcce975057448c5a316992c710f, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 5a600f46e8fe5e04592d0fe9a773eefa, type: 2}
   pathStarts:
   - {fileID: 811625348}
   - {fileID: 1162484226}
@@ -2176,6 +2176,7 @@ GameObject:
   - component: {fileID: 1208700222}
   - component: {fileID: 1208700223}
   - component: {fileID: 1208700224}
+  - component: {fileID: 1208700225}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -2234,6 +2235,22 @@ MonoBehaviour:
   - 8.5
   - 10
   - 12
+--- !u!114 &1208700225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208700221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082e03663565beb4facb8f9fc6a0dc4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  gameOverUI: {fileID: 1249880996}
+  bciController: {fileID: 1208700224}
+  enemySpawner: {fileID: 491201804}
+  shooter: {fileID: 527841361}
 --- !u!1 &1213499787
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,9 +20,18 @@ public class shoot_and_turn : MonoBehaviour
     private InputSystem_Actions controls;
     public int quadrant = 1; // 1: leftmost, 2: left middle, 3: right middle, 4: rightmost
     private Vector2 forward;
+    private bool shouldShoot = false;
+    private Quaternion defaultRotation;
+
     private void Awake()
     {
         controls = new InputSystem_Actions();
+        defaultRotation = transform.rotation;
+    }
+
+    public void Stop()
+    {
+        shouldShoot = false;
     }
 
     private void OnEnable()
@@ -35,10 +44,13 @@ public class shoot_and_turn : MonoBehaviour
         controls.Player.Disable();
     }
 
-    void Start()
+    public void Start()
     {
+        shouldShoot = true;
+        transform.rotation = defaultRotation;
+
         startRotation = transform.rotation;
-        targetRotation = transform.rotation;
+        targetRotation = startRotation;
         forward = transform.up;
 
         controls.Player.pos1.performed += ctx => RotateAndScheduleShoot(59f);
@@ -60,7 +72,7 @@ public class shoot_and_turn : MonoBehaviour
                 isRotating = false;
             }
         }
-        else
+        else if (shouldShoot)
         {
           
             // If not rotating, ensure the player is shooting constantly
