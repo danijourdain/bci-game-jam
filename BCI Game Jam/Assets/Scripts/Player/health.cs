@@ -31,7 +31,7 @@ public class health : MonoBehaviour
         }
         if(current_HP <= 0f)
         {
-            Debug.Log("GAME OVER");
+            GameManager.Instance.GameOver();
             current_HP = Max_HP;
         }
     }
