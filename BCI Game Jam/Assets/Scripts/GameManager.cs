@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     private void EnableLevelUpScreen()
     {
+        Debug.Log("ENABLING SCREEN");
         currentlyLevellingUp = true;
         DisableGameplay();
         levelUpUI.SetActive(true);
@@ -50,7 +51,9 @@ public class GameManager : MonoBehaviour
 
     public void SelectPowerup(int index)
     {
+        Debug.Log("SELECTED FROM GAME MANAGER " + index);
         levelUpUI.GetComponent<LevelUpScreen>().OnBCISelect(index);
+        currentlyLevellingUp = false;
         ResumeGame();
     }
 
@@ -87,6 +90,7 @@ public class GameManager : MonoBehaviour
 
     private void DisableGameplay()
     {
+        Debug.Log("DISABLING GAMEPLAY");
         // disable enemies
         enemySpawner.Stop();
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");

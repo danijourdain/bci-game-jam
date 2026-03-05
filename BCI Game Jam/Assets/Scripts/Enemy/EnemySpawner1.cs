@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemyCoroutine(EnemySpawnData data)
     {
-        while(true)
+        while(spawningEnabled)
         {
             yield return new WaitForSeconds(data.spawnInterval);    // error here
 

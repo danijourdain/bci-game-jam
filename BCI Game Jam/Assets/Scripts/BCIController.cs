@@ -120,7 +120,7 @@ public class BCIController : MonoBehaviour
     // handle the IBCIClassificationTool StimuliIDSelected event
     private void HandleStimuliIDSelected(int stimulusID)
     {
-        if(GameManager.Instance.currentlyLevellingUp)    // add boolean here for handling if you're in game or selecting reward
+        if(!GameManager.Instance.currentlyLevellingUp)    // add boolean here for handling if you're in game or selecting reward
         {
             switch (stimulusID)
             {
