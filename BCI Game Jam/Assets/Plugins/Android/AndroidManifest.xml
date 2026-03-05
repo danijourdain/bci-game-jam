@@ -7,7 +7,7 @@
     android:installLocation="2"
     android:compileSdkVersion="33"
     android:compileSdkVersionCodename="13"
-    package="com.BCI4Kids.bci2048"
+    package="com.DefaultCompany.bci2048"
     platformBuildVersionCode="33"
     platformBuildVersionName="13">
 
@@ -66,11 +66,11 @@
         android:required="false" />
 
     <permission
-        android:name="com.BCI4Kids.bci2048.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.DefaultCompany.bci2048.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
     <uses-permission
-        android:name="com.BCI4Kids.bci2048.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+        android:name="com.DefaultCompany.bci.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <queries>
         <package android:name="com.cognixion.telemetryserviceapp" />
@@ -151,7 +151,7 @@
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:exported="false"
-            android:authorities="com.BCI4Kids.bci2048.androidx-startup"
+            android:authorities="com.DefaultCompany.bci2048.androidx-startup"
             tools:replace="android:authorities">
 
             <meta-data

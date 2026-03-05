@@ -8,7 +8,7 @@ public class PlayerXP : MonoBehaviour
     public static event Action OnLevelUp;
 
     private float currentXP = 0f;
-    private readonly float xpToNextLevel = 10f;
+    private readonly float xpToNextLevel = 100f;
 
     public void Start()
     {
