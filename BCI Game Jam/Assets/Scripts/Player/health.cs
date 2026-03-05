@@ -7,10 +7,13 @@ public class health : MonoBehaviour
     public float current_HP;
     public float damage_reduction = 0f; // percentage of damage reduced (0 = no reduction, 1 = immune)
     public float dodge_chance = 0f; // percentage chance to completely dodge an attack (0 = no dodge, 1 = always dodge)
+
+    [SerializeField] private HealthBar healthBarUI;
     
-    void Start()
+    public void Start()
     {
         current_HP = Max_HP;
+        healthBarUI.SetHealth(current_HP, Max_HP);
     }
 
     // Update is called once per frame
@@ -28,6 +31,7 @@ public class health : MonoBehaviour
         if(!ShouldDodge())
         {
             current_HP -= damageAmount * (1 - damage_reduction);
+            healthBarUI.SetHealth(current_HP, Max_HP);
         }
         if(current_HP <= 0f)
         {
@@ -41,6 +45,7 @@ public class health : MonoBehaviour
         if(current_HP < Max_HP)
         {
             current_HP += healAmount;
+            healthBarUI.SetHealth(current_HP, Max_HP);
         }
     }
 }

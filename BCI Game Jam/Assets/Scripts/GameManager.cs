@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private BCIController bciController;
     [SerializeField] private EnemySpawner enemySpawner; 
-    [SerializeField] private shoot_and_turn shooter;
+    [SerializeField] private GameObject playerGO;
+    private shoot_and_turn shooter;
+    private health health;
 
     void Awake()
     {
@@ -19,6 +21,9 @@ public class GameManager : MonoBehaviour
         else
         {
             Init();
+
+            shooter = playerGO.GetComponent<shoot_and_turn>();
+            health = playerGO.GetComponent<health>();
         }
     }
 
@@ -62,6 +67,8 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         // reset player health
+        health.Start();
+
         // reset abilities
         shooter.Start();
 
