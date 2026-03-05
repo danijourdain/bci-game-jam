@@ -8,7 +8,7 @@ public class PlayerXP : MonoBehaviour
     public static event Action OnLevelUp;
 
     private float currentXP = 0f;
-    private readonly float xpToNextLevel = 100f;
+    private readonly float xpToNextLevel = 10f;
 
     public void Start()
     {
@@ -42,6 +42,7 @@ public class PlayerXP : MonoBehaviour
         Debug.Log("LEVEL UP!");
 
         // trigger level up event
+        Debug.Log("Firing OnLevelUp event, listeners: " + OnLevelUp?.GetInvocationList().Length);
         OnLevelUp?.Invoke();
     }
 }

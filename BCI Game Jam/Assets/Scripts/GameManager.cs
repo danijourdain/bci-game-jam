@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameObject levelUpUI;
     [SerializeField] private BCIController bciController;
     [SerializeField] private EnemySpawner enemySpawner; 
     [SerializeField] private GameObject playerGO;
@@ -25,6 +26,21 @@ public class GameManager : MonoBehaviour
             shooter = playerGO.GetComponent<shoot_and_turn>();
             health = playerGO.GetComponent<health>();
         }
+    }
+
+    void OnEnable()
+    {
+        PlayerXP.OnLevelUp += EnableLevelUpScreen;  // subscribe
+    }
+
+    void OnDisable()
+    {
+        PlayerXP.OnLevelUp -= EnableLevelUpScreen;  // always unsubscribe!
+    }
+
+    private void EnableLevelUpScreen()
+    {
+        levelUpUI.SetActive(true);
     }
 
     void Update()
