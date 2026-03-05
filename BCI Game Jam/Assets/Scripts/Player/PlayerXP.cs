@@ -26,7 +26,6 @@ public class PlayerXP : MonoBehaviour
     private void GainXP(float amount)
     {
         currentXP += amount;
-        Debug.Log($"Gained {amount} XP. Total: {currentXP}");
         xpBar.SetFill(currentXP, xpToNextLevel);
 
         if (currentXP >= xpToNextLevel)

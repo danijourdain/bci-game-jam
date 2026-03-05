@@ -15,10 +15,14 @@ public class health : MonoBehaviour
         current_HP = Max_HP;
         healthBarUI.SetFill(current_HP, Max_HP);
     }
-
-    // Update is called once per frame
-    void Update()
+    void OnEnable()
     {
+        EnemyEvents.OnHealEnemyKilled += HandleHeal;
+    }
+
+    void OnDisable()
+    {
+        EnemyEvents.OnHealEnemyKilled -= HandleHeal;
     }
 
     private bool ShouldDodge()
@@ -40,8 +44,9 @@ public class health : MonoBehaviour
         }
     }
 
-    public void Heal(float healAmount)
+    public void HandleHeal(float healAmount)
     {
+        Debug.Log("HANDLING HEAL FROM ENEMY");
         if(current_HP < Max_HP)
         {
             current_HP += healAmount;
