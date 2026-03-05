@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     private shoot_and_turn shooter;
     private health health;
 
+    public bool currentlyLevellingUp = false;
+
     void Awake()
     {
         if(Instance != null && Instance != this)
@@ -40,7 +42,14 @@ public class GameManager : MonoBehaviour
 
     private void EnableLevelUpScreen()
     {
+        currentlyLevellingUp = true;
         levelUpUI.SetActive(true);
+        levelUpUI.GetComponent<LevelUpScreen>().DisplayPowerupsForSelect();
+    }
+
+    public void SelectPowerup(int index)
+    {
+        levelUpUI.GetComponent<LevelUpScreen>().OnBCISelect(index);
     }
 
     void Update()
@@ -49,6 +58,10 @@ public class GameManager : MonoBehaviour
         if(Keyboard.current.pKey.wasPressedThisFrame)
         {
             Instance.GameOver();
+        }
+        else if (Keyboard.current.aKey.wasPressedThisFrame && currentlyLevellingUp)
+        {
+            SelectPowerup(0);
         }
     }
 

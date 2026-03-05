@@ -39,10 +39,8 @@ public class PlayerXP : MonoBehaviour
     {
         currentXP -= xpToNextLevel;
         xpBar.SetFill(currentXP, xpToNextLevel);
-        Debug.Log("LEVEL UP!");
 
         // trigger level up event
-        Debug.Log("Firing OnLevelUp event, listeners: " + OnLevelUp?.GetInvocationList().Length);
         OnLevelUp?.Invoke();
     }
 }

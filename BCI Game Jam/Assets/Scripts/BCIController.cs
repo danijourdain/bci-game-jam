@@ -120,7 +120,7 @@ public class BCIController : MonoBehaviour
     // handle the IBCIClassificationTool StimuliIDSelected event
     private void HandleStimuliIDSelected(int stimulusID)
     {
-        if(true)    // add boolean here for handling if you're in game or selecting reward
+        if(GameManager.Instance.currentlyLevellingUp)    // add boolean here for handling if you're in game or selecting reward
         {
             switch (stimulusID)
             {
@@ -147,7 +147,24 @@ public class BCIController : MonoBehaviour
         }
         else
         {
-            throw new NotImplementedException("Powerups are not implemented yet");
+            switch (stimulusID)
+            {
+                case 0:
+                    // lane 1
+                    GameManager.Instance.SelectPowerup(0);
+                    break;
+                case 1:
+                    //lane 2
+                    GameManager.Instance.SelectPowerup(1);
+                    break;
+                case 2:
+                    //lane 3
+                    GameManager.Instance.SelectPowerup(2);
+                    break;
+                default:
+                    Debug.Log("Invalid ID selected");
+                    break;
+            }
         }
         
 

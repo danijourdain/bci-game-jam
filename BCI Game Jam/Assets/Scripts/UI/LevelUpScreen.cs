@@ -14,7 +14,7 @@ public class LevelUpScreen : MonoBehaviour
     [SerializeField] private List<GameObject> cards;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         powerupCardText = new List<string> {
             "Increase max HP by 3",
@@ -46,8 +46,6 @@ public class LevelUpScreen : MonoBehaviour
         };
 
         selectedPowerupMethods = new List<Action> {null, null, null};
-
-        DisplayPowerupsForSelect();
     }
 
     private List<int> SelectPowerups()
@@ -55,16 +53,14 @@ public class LevelUpScreen : MonoBehaviour
         var random = new System.Random();
         var chosen = new HashSet<int>();
     
-
         while (chosen.Count < cards.Count)
             chosen.Add(random.Next(0, powerupCardText.Count));
 
         return new List<int>(chosen);
     }
 
-    private void DisplayPowerupsForSelect()
+    public void DisplayPowerupsForSelect()
     {
-        Debug.Log("LEVELLING UP!!");
         gameObject.SetActive(true);
         List<int> selectedIndices = SelectPowerups();
 
@@ -85,5 +81,13 @@ public class LevelUpScreen : MonoBehaviour
     public void OnBCISelect(int index)
     {
         selectedPowerupMethods[index]();
+        Cleanup();
+    }
+
+    private void Cleanup()
+    {
+        GameManager.Instance.currentlyLevellingUp = false;
+        selectedPowerupMethods = new List<Action> {null, null, null};
+        gameObject.SetActive(false);
     }
 }

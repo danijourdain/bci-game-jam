@@ -57,19 +57,19 @@ public class ability_giver : MonoBehaviour
 
     public void vampiric_bullets()
     {
-        throw new NotImplementedException();
+        Debug.LogWarning("NOT IMPLEMENTED");
         ability_script.lifeSteal += 0.1f; // increase life steal by 10%
     }
 
     public void cooled_off()
     {
-        throw new NotImplementedException();
+        Debug.LogWarning("NOT IMPLEMENTED");
         ability_script.cooldownReduction += 0.1f; // increase cooldown reduction by 10%
     }
 
     public void increased_magic()
     {
-        throw new NotImplementedException();
+        Debug.LogWarning("NOT IMPLEMENTED");
         ability_script.magicDamage += 1f; // increase magic damage by 1
     }
 
