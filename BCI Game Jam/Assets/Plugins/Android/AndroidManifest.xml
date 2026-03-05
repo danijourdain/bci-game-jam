@@ -7,7 +7,7 @@
     android:installLocation="2"
     android:compileSdkVersion="33"
     android:compileSdkVersionCodename="13"
-    package="com.DefaultCompany.bci2048"
+    package="com.DefaultCompany.BCDefence"
     platformBuildVersionCode="33"
     platformBuildVersionName="13">
 
@@ -66,7 +66,7 @@
         android:required="false" />
 
     <permission
-        android:name="com.DefaultCompany.bci2048.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.DefaultCompany.BCDefence.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
     <uses-permission
@@ -151,7 +151,7 @@
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:exported="false"
-            android:authorities="com.DefaultCompany.bci2048.androidx-startup"
+            android:authorities="com.DefaultCompany.BCDefence.androidx-startup"
             tools:replace="android:authorities">
 
             <meta-data
