@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class Countdown : MonoBehaviour
+public class RestartCountdown : MonoBehaviour
 {
     private float timeLeft = 0;
     [SerializeField] private float countdownTime = 5;
@@ -16,11 +16,11 @@ public class Countdown : MonoBehaviour
         {
             restarted = true;
             restartText.gameObject.SetActive(false);
-            // GridManager.Instance.RestartGame();
+            GameManager.Instance.StartGame();
         }
     }
 
-    public void Restart()
+    public void BeginTimer()
     {
         timeLeft = countdownTime;
         restartText.text = timeLeft.ToString("0");

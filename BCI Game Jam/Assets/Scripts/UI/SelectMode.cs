@@ -11,13 +11,12 @@ public class SelectMode : MonoBehaviour
         if (Keyboard.current.digit0Key.wasPressedThisFrame || Keyboard.current.numpad0Key.wasPressedThisFrame)
         {
             // start 2048   
-            if (SceneManager.GetActiveScene().name != "2048")
+            if (SceneManager.GetActiveScene().name != "World")
             {
-                SceneManager.LoadScene("2048");
+                SceneManager.LoadScene("World");
             }
 
-            // GridManager.Instance.gameMode = GameModes.GAME_2048;
-            // GridManager.Instance.RestartGame();
+            GameManager.Instance.StartGame();
         }
         else if (Keyboard.current.digit1Key.wasPressedThisFrame || Keyboard.current.numpad1Key.wasPressedThisFrame)
         {

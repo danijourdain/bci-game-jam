@@ -1203,12 +1203,47 @@ MonoBehaviour:
   attackSpeed: 1
   accuracy: 0
   shootTimer: 0
+  lifeSteal: 0
+  magicDamage: 0
+  cooldownReduction: 0
   is_available: 1
   projectilePrefab: {fileID: 7848658160920619835, guid: 6b0a4c9deef394948854929a53805b20, type: 3}
   player: {fileID: 527841356}
   speed: 10
   quadrant: 0
   attack_script: {fileID: 527841361}
+  sawblade_level: 0
+  sawblade_cooldown: 10
+  sawblade_timer: 0
+  sawblade_projectile: {fileID: 0}
+  ice_shard_level: 0
+  ice_shard_cooldown: 5
+  ice_shard_timer: 0
+  plasma_ball_level: 0
+  plasma_ball_cooldown: 5
+  plasma_ball_timer: 0
+  plasma_ball_projectile: {fileID: 0}
+  electricity_charge_level: 0
+  electricity_charge_cooldown: 5
+  electricity_charge_timer: 0
+  laser_beam_level: 0
+  laser_beam_cooldown: 5
+  laser_beam_timer: 0
+  missile_level: 0
+  missile_cooldown: 5
+  missile_timer: 0
+  grenade_level: 0
+  grenade_cooldown: 5
+  grenade_timer: 0
+  honored_level: 0
+  honored_cooldown: 10
+  honored_timer: 0
+  gamma_knife_level: 0
+  gamma_knife_cooldown: 5
+  gamma_knife_timer: 0
+  jacobs_ladder_level: 0
+  jacobs_ladder_cooldown: 5
+  jacobs_ladder_timer: 0
 --- !u!1 &585460343
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,13 +2398,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1249880997}
+  - component: {fileID: 1249880999}
+  - component: {fileID: 1249880998}
   m_Layer: 0
   m_Name: GameOverScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1249880997
 Transform:
   m_ObjectHideFlags: 0
@@ -2389,6 +2426,32 @@ Transform:
   - {fileID: 1041183629}
   m_Father: {fileID: 854634664}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1249880998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249880996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01fe42104e753e47a93cd87015bfb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SelectMode
+--- !u!114 &1249880999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249880996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 647642579856a964aa4f5dfe2d7b3c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Countdown
+  countdownTime: 5
+  restartText: {fileID: 1030639031}
 --- !u!1 &1323174734
 GameObject:
   m_ObjectHideFlags: 0
