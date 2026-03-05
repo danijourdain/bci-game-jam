@@ -8,7 +8,7 @@ public class health : MonoBehaviour
     public float damage_reduction = 0f; // percentage of damage reduced (0 = no reduction, 1 = immune)
     public float dodge_chance = 0f; // percentage chance to completely dodge an attack (0 = no dodge, 1 = always dodge)
 
-    [SerializeField] private HealthBar healthBarUI;
+    [SerializeField] private FillBar healthBarUI;
     
     public void Start()
     {
