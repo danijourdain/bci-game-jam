@@ -13,7 +13,7 @@ public class health : MonoBehaviour
     public void Start()
     {
         current_HP = Max_HP;
-        healthBarUI.SetHealth(current_HP, Max_HP);
+        healthBarUI.SetFill(current_HP, Max_HP);
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class health : MonoBehaviour
         if(!ShouldDodge())
         {
             current_HP -= damageAmount * (1 - damage_reduction);
-            healthBarUI.SetHealth(current_HP, Max_HP);
+            healthBarUI.SetFill(current_HP, Max_HP);
         }
         if(current_HP <= 0f)
         {
@@ -45,7 +45,7 @@ public class health : MonoBehaviour
         if(current_HP < Max_HP)
         {
             current_HP += healAmount;
-            healthBarUI.SetHealth(current_HP, Max_HP);
+            healthBarUI.SetFill(current_HP, Max_HP);
         }
     }
 }

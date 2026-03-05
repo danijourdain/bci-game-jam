@@ -1276,6 +1276,7 @@ GameObject:
   - component: {fileID: 527841362}
   - component: {fileID: 527841361}
   - component: {fileID: 527841359}
+  - component: {fileID: 527841364}
   - component: {fileID: 527841360}
   - component: {fileID: 527841358}
   - component: {fileID: 527841363}
@@ -1517,6 +1518,19 @@ MonoBehaviour:
   jacobs_ladder_level: 0
   jacobs_ladder_cooldown: 5
   jacobs_ladder_timer: 0
+--- !u!114 &527841364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527841356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125d0334701628a45b5c16d2a962010c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerXP
+  xpBar: {fileID: 838395356}
 --- !u!1 &533105115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,7 +1766,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206b4c913312f1947a773839063f281e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FillBar
-  fillBar: {fileID: 0}
+  fillBar: {fileID: 101878574}
+  anchorX: -16
 --- !u!1001 &854340967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3419,7 +3434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206b4c913312f1947a773839063f281e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FillBar
-  fillBar: {fileID: 0}
+  fillBar: {fileID: 1091224295}
+  anchorX: 16
 --- !u!1 &1549842309
 GameObject:
   m_ObjectHideFlags: 0

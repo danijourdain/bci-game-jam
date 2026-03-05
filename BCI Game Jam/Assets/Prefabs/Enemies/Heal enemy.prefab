@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::enemy
   damage_amount: 1
   HP: 1
+  xpValue: 2.5
 --- !u!50 &4559950745562445164
 Rigidbody2D:
   serializedVersion: 5
