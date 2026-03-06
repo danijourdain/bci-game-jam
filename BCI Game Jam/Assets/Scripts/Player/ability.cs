@@ -31,10 +31,12 @@ public class ability : MonoBehaviour
     public int electricity_charge_level = 0; // fires a lightning bolt that chains between enemies
     public float electricity_charge_cooldown = 5f; // cooldown for the electricity charge ability
     public float electricity_charge_timer = 0f; // timer for the electricity charge ability
+    public GameObject electricity_charge_projectile; // prefab for the electricity charge projectile
     [Header("Laser Beam")]
     public int laser_beam_level = 0; // fires a laser that pierces through enemies, hitting all in its path
     public float laser_beam_cooldown = 5f; // cooldown for the laser beam ability
     public float laser_beam_timer = 0f; // timer for the laser beam ability
+    public GameObject laser_projectile; // prefab for the laser projectile
     [Header("Missile")]
     public int missile_level = 0; // fires a missile that homes in on the nearest enemy
     public float missile_cooldown = 5f; // cooldown for the missile ability
@@ -83,10 +85,45 @@ public class ability : MonoBehaviour
             {
                 // fire plasma ball projectile
                 plasma_ball_timer = 0f;
+                plasma_ball_projectile.GetComponent<plasmaBall>().level = plasma_ball_level; // set the level of the plasma ball to determine its damage and size
                 shoot_and_turn.Shoot(transform, quadrant, 1, magicDamage, plasma_ball_projectile);
             }
 
         }
+    }
+    void laser()
+    {
+        // code for firing a laser projectile that pierces through enemies, hitting all in its path
+        if (laser_beam_level > 0)
+        {
+            // instantiate laser projectile and set its properties based on laser_beam_level
+            laser_beam_timer += Time.deltaTime;
+            if (laser_beam_timer >= laser_beam_cooldown)
+            {
+                // fire laser projectile
+                laser_beam_timer = 0f;
+                laser_projectile.GetComponent<laser>().level = laser_beam_level; // set the level of the laser to determine its damage and size
+                shoot_and_turn.Shoot(transform, quadrant, 1, magicDamage, laser_projectile);
+            }
+
+        }
+    }
+    void electricityCharge()
+    {
+        // code for firing a lightning charge projectile that chains between enemies
+        if (electricity_charge_level > 0)
+        {
+            // instantiate electricity charge projectile and set its properties based on electricity_charge_level
+            electricity_charge_timer += Time.deltaTime;
+            if (electricity_charge_timer >= electricity_charge_cooldown)
+            {
+                // fire electricity charge projectile
+                electricity_charge_timer = 0f;
+                electricity_charge_projectile.GetComponent<electricityCharge>().level = electricity_charge_level; // set the level of the electricity charge to determine its damage and size
+                shoot_and_turn.Shoot(transform, quadrant, 1, magicDamage, electricity_charge_projectile);
+            }
+        }
+
     }
 
     // Update is called once per frame
@@ -94,5 +131,8 @@ public class ability : MonoBehaviour
     {
         sawblade();
         plasmaBall();
+        laser();
+        electricityCharge();
     }
 }
+
