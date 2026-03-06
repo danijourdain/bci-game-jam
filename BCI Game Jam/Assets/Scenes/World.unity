@@ -1490,12 +1490,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ability
   lifeSteal: 0
-  magicDamage: 0
+  magicDamage: 1
   cooldownReduction: 0
   is_available: 1
   speed: 10
   quadrant: 0
-  sawblade_level: 0
+  sawblade_level: 1
   sawblade_cooldown: 10
   sawblade_timer: 0
   sawblade_projectile: {fileID: 7848658160920619835, guid: 2c063693b06e50e438136eebd429e9ee, type: 3}
@@ -1514,6 +1514,9 @@ MonoBehaviour:
   laser_beam_cooldown: 5
   laser_beam_timer: 0
   laser_projectile: {fileID: 7848658160920619835, guid: 0f619a8e0b0d4aa4187a1848af8a3802, type: 3}
+  slot_machine_level: 0
+  slot_machine_cooldown: 3
+  slot_machine_timer: 0
   missile_level: 0
   missile_cooldown: 5
   missile_timer: 0
@@ -2510,7 +2513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1057419688
 Transform:
   m_ObjectHideFlags: 0

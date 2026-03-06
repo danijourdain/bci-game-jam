@@ -23,7 +23,8 @@ public class shoot_and_turn : MonoBehaviour
     private Vector2 forward;
     private bool shouldShoot = false;
     private Quaternion defaultRotation;
-
+    public bool lifesteal = false; // whether the bullet can heal the player for a percentage of the damage dealt
+    public float lifesteal_percentage = 0.1f; // the percentage of damage dealt that is converted to health for the player
     private void Awake()
     {
         controls = new InputSystem_Actions();
@@ -146,6 +147,11 @@ public class shoot_and_turn : MonoBehaviour
         // Set damage on the projectile
         bullet projScript = projectile.GetComponent<bullet>();
         projScript.damage_amount = damage;
+        if (lifesteal>0)
+        {
+            projScript.lifesteal = true;
+            projScript.lifesteal_percentage = lifesteal_percentage;
+        }
     }
     public static Transform FindClosestEnemyInQuadrant(string tagName, float minAngle, float maxAngle, Transform transform = null)
 {
