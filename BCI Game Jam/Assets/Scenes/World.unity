@@ -1411,7 +1411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 777fe16b9bce1d44a8ecf0c87a0b15bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::shoot_and_turn
-  projectilePrefab: {fileID: 7848658160920619835, guid: 6b0a4c9deef394948854929a53805b20, type: 3}
+  projectilePrefab: {fileID: 6966491122021851415, guid: 99ae7282fe594984bb579ebab8154681, type: 3}
   speed: 2
   rotationDuration: 0.2
   shootDelay: 0.2
