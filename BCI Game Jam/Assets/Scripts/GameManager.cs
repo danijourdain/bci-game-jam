@@ -64,9 +64,17 @@ public class GameManager : MonoBehaviour
         {
             Instance.GameOver();
         }
-        else if (Keyboard.current.aKey.wasPressedThisFrame && currentlyLevellingUp)
+        else if (Keyboard.current.zKey.wasPressedThisFrame && currentlyLevellingUp)
         {
             SelectPowerup(0);
+        }
+        else if (Keyboard.current.xKey.wasPressedThisFrame && currentlyLevellingUp)
+        {
+            SelectPowerup(1);
+        }
+        else if (Keyboard.current.cKey.wasPressedThisFrame && currentlyLevellingUp)
+        {
+            SelectPowerup(2);
         }
     }
 
