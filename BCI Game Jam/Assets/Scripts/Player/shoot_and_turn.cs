@@ -23,8 +23,7 @@ public class shoot_and_turn : MonoBehaviour
     private Vector2 forward;
     private bool shouldShoot = false;
     private Quaternion defaultRotation;
-    public bool lifesteal = false; // whether the bullet can heal the player for a percentage of the damage dealt
-    public float lifesteal_percentage = 0.1f; // the percentage of damage dealt that is converted to health for the player
+    public float lifeSteal = 0; // whether the bullet can heal the player for a percentage of the damage dealt
     private void Awake()
     {
         controls = new InputSystem_Actions();
@@ -81,7 +80,7 @@ public class shoot_and_turn : MonoBehaviour
             shootTimer += Time.deltaTime;
             if (shootTimer >= shootInterval)
             {
-                shoot_and_turn.Shoot(transform, quadrant, speed, damage, projectilePrefab);
+                shoot_and_turn.Shoot(transform, quadrant, speed, damage, projectilePrefab,lifeSteal);
                 shootTimer = 0f;
             }
         }
@@ -114,7 +113,7 @@ public class shoot_and_turn : MonoBehaviour
         pendingShoot = true; // mark that we want to shoot after rotation
     }
 
-    public static void Shoot(Transform transform, int quadrant, float speed = 10f, float damage = 1f, GameObject projectilePrefab = null)
+    public static void Shoot(Transform transform, int quadrant, float speed = 10f, float damage = 1f, GameObject projectilePrefab = null, float lifeSteal = 0f)
     {
         Transform target;
         switch (quadrant)
@@ -147,10 +146,10 @@ public class shoot_and_turn : MonoBehaviour
         // Set damage on the projectile
         bullet projScript = projectile.GetComponent<bullet>();
         projScript.damage_amount = damage;
-        if (lifesteal>0)
+        if (lifeSteal>0)
         {
             projScript.lifesteal = true;
-            projScript.lifesteal_percentage = lifesteal_percentage;
+            projScript.lifesteal_percentage = lifeSteal;
         }
     }
     public static Transform FindClosestEnemyInQuadrant(string tagName, float minAngle, float maxAngle, Transform transform = null)
