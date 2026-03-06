@@ -12,11 +12,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerGO;
     private shoot_and_turn shooter;
     private health health;
+    private InputSystem_Actions controls;
 
     public bool currentlyLevellingUp = false;
 
     void Awake()
     {
+        controls = new InputSystem_Actions();   
         if(Instance != null && Instance != this)
         {
             Destroy(this);
@@ -29,14 +31,16 @@ public class GameManager : MonoBehaviour
             health = playerGO.GetComponent<health>();
         }
     }
-
+    
     void OnEnable()
     {
+        controls.Player.Enable();
         PlayerXP.OnLevelUp += EnableLevelUpScreen;  // subscribe
     }
 
     void OnDisable()
     {
+        controls.Player.Disable();
         PlayerXP.OnLevelUp -= EnableLevelUpScreen;  // always unsubscribe!
     }
 
@@ -55,6 +59,13 @@ public class GameManager : MonoBehaviour
         levelUpUI.GetComponent<LevelUpScreen>().OnBCISelect(index);
         currentlyLevellingUp = false;
         ResumeGame();
+    }
+
+    public void start()
+    {
+        controls.Player.pos1.performed += ctx => SelectPowerup(0);
+        controls.Player.pos2.performed += ctx => SelectPowerup(1);
+        controls.Player.pos3.performed += ctx => SelectPowerup(2);
     }
 
     void Update()
