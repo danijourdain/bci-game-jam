@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4000544083638075286}
   - component: {fileID: 6550171921392795224}
   - component: {fileID: 1225759853533707950}
-  - component: {fileID: 4004590356859120404}
+  - component: {fileID: -5580402019957882516}
   - component: {fileID: 4559950745562445164}
   - component: {fileID: 1016169858910665600}
   m_Layer: 0
@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 5502382298737969485}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,9 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ecb70d5d298584c90aab9935f6155f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowPath
-  moveSpeed: 0.05
+  moveSpeed: 0.025
   laneOffset: 0.5
---- !u!114 &4004590356859120404
+--- !u!114 &-5580402019957882516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,11 +118,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5502382298737969485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42ca93b2dea721c4d834deb49804f1d5, type: 3}
+  m_Script: {fileID: 11500000, guid: f9a664154c8a96e4e9297278965766d7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::enemy
+  m_EditorClassIdentifier: Assembly-CSharp::HealEnemy
   damage_amount: 1
   HP: 1
+  xpValue: 2.5
 --- !u!50 &4559950745562445164
 Rigidbody2D:
   serializedVersion: 5

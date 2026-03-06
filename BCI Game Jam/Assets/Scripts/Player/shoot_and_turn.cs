@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class shoot_and_turn : MonoBehaviour
@@ -28,6 +29,12 @@ public class shoot_and_turn : MonoBehaviour
     private void Awake()
     {
         controls = new InputSystem_Actions();
+        defaultRotation = transform.rotation;
+    }
+
+    public void Stop()
+    {
+        shouldShoot = false;
     }
 
     private void OnEnable()
@@ -40,10 +47,13 @@ public class shoot_and_turn : MonoBehaviour
         controls.Player.Disable();
     }
 
-    void Start()
+    public void Start()
     {
+        shouldShoot = true;
+        transform.rotation = defaultRotation;
+
         startRotation = transform.rotation;
-        targetRotation = transform.rotation;
+        targetRotation = startRotation;
         forward = transform.up;
 
         controls.Player.pos1.performed += ctx => RotateAndScheduleShoot(59f);
@@ -65,7 +75,7 @@ public class shoot_and_turn : MonoBehaviour
                 isRotating = false;
             }
         }
-        else
+        else if (shouldShoot)
         {
           
             // If not rotating, ensure the player is shooting constantly
@@ -177,4 +187,9 @@ public class shoot_and_turn : MonoBehaviour
 
     return closest;
 }
+
+    internal void Resume()
+    {
+        shouldShoot = true;
+    }
 }
