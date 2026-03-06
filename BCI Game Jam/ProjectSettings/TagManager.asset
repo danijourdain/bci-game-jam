@@ -54,14 +54,8 @@ TagManager:
   - name: Player
     uniqueID: 1460310935
     locked: 0
-  - name: Level Up UI
-    uniqueID: 1071624403
-    locked: 0
   - name: BCI
     uniqueID: 3852226489
-    locked: 0
-  - name: UI
-    uniqueID: 559839365
     locked: 0
   m_RenderingLayers:
   - Default

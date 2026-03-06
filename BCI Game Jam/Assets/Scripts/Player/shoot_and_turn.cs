@@ -26,7 +26,7 @@ public class shoot_and_turn : MonoBehaviour
 
     private void Awake()
     {
-        controls = new InputSystem_Actions();
+        controls = new InputSystem_Actions();   
         defaultRotation = transform.rotation;
     }
 
