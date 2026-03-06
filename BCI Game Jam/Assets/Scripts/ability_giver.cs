@@ -58,18 +58,17 @@ public class ability_giver : MonoBehaviour
     public void vampiric_bullets()
     {
         Debug.LogWarning("NOT IMPLEMENTED");
-        ability_script.lifeSteal += 0.1f; // increase life steal by 10%
+        shoot_and_turn.lifeSteal += 0.1f; // increase life steal by 10%
     }
 
+    private int cooldownLevel = 0;
     public void cooled_off()
     {
-        Debug.LogWarning("NOT IMPLEMENTED");
-        ability_script.cooldownReduction += 0.1f; // increase cooldown reduction by 10%
+        ability_script.cooldownReduction = Mathf.Log(cooldownLevel + 1); // increase cooldown reduction by 10%
     }
 
     public void increased_magic()
     {
-        Debug.LogWarning("NOT IMPLEMENTED");
         ability_script.magicDamage += 1f; // increase magic damage by 1
     }
 
