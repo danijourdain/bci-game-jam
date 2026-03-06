@@ -10,7 +10,7 @@ public class HoverController : MonoBehaviour, IStimuliHoverController
     [SerializeField] private float selectedThickness = 1.3f;
 
     public bool isHovered = false;
-    public bool isSelected = true;
+    public bool isSelected = false;
 
     private SpriteRenderer hoverSpriteRenderer;
     private Vector3 startingScale;

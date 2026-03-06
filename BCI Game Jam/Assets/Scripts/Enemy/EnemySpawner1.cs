@@ -12,9 +12,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform pathEnd;
 
     // private int currentEnemyCount = 0;
+    private bool spawningEnabled = false;
 
-    void Start()
+    public void Start()
     {
+        spawningEnabled = true;
         foreach (var enemyData in enemies)
         {
             StartCoroutine(SpawnEnemyCoroutine(enemyData));
@@ -23,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemyCoroutine(EnemySpawnData data)
     {
-        while(true)
+        while(spawningEnabled)
         {
             yield return new WaitForSeconds(data.spawnInterval);    // error here
 
@@ -39,19 +41,18 @@ public class EnemySpawner : MonoBehaviour
         return Random.value <= chance;
     }
 
-    // void Update()
-    // {
-    //     spawnTimer -= Time.deltaTime;
-    //     if (spawnTimer <= 0)
-    //     {
-
-    //         spawnEnemies(spawnTimer, enemyTypes);
-    //         spawnTimer = enemySpawnInterval;
-    //     }
-    // }
-
     private void SpawnEnemy(EnemySpawnData data)
     {
         Instantiate(data.enemyPrefab, transform, false);
+    }
+
+    public void Stop()
+    {
+        spawningEnabled = false;
+    }
+
+    public void Resume()
+    {
+        Start();
     }
 }

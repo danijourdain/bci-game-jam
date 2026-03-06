@@ -35,6 +35,8 @@ public class BCIController : MonoBehaviour
     // must have length >= _stimuliList length
     [SerializeField] private List<float> _frequencies;
 
+    private bool shouldFlash = true;
+
 
     #region Unity Lifecycle 
 
@@ -71,14 +73,14 @@ public class BCIController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        shouldFlash = true;
         CongfigureBCI();
         HandleStimuliFlashingChanged(false);    // ensure stimuli are not flashing
 
         // wait before starting classification
         _delayAction.DelayEvent(BCI_START_DELAY, () =>
         {
-            _bciTool.StartBCI(_frequencies, _stimuliList);
-            HandleStimuliFlashingChanged(true); // start flashing
+            TriggerFlashStart();
         });
     }
 
@@ -92,6 +94,8 @@ public class BCIController : MonoBehaviour
     #region Classification Control
     public void StopFlashing()
     {
+        Debug.Log("DISABLE FLASHING");
+        shouldFlash = false;
         _bciTool.InterruptClassification();
         HandleStimuliFlashingChanged(false);
     }
@@ -120,7 +124,7 @@ public class BCIController : MonoBehaviour
     // handle the IBCIClassificationTool StimuliIDSelected event
     private void HandleStimuliIDSelected(int stimulusID)
     {
-        if(true)    // add boolean here for handling if you're in game or selecting reward
+        if(!GameManager.Instance.currentlyLevellingUp)    // add boolean here for handling if you're in game or selecting reward
         {
             switch (stimulusID)
             {
@@ -147,17 +151,46 @@ public class BCIController : MonoBehaviour
         }
         else
         {
-            throw new NotImplementedException("Powerups are not implemented yet");
+            switch (stimulusID)
+            {
+                case 0:
+                    // lane 1
+                    GameManager.Instance.SelectPowerup(0);
+                    break;
+                case 1:
+                    //lane 2
+                    GameManager.Instance.SelectPowerup(1);
+                    break;
+                case 2:
+                    //lane 3
+                    GameManager.Instance.SelectPowerup(2);
+                    break;
+                default:
+                    Debug.Log("Invalid ID selected");
+                    break;
+            }
         }
         
 
         // pause before resuming flashing
         _delayAction.DelayEvent(BCI_RESTART_DELAY, () =>
         {
-            _bciTool.ResetStimuli();
-            _bciTool.StartBCI(_frequencies, _stimuliList);
-            HandleStimuliFlashingChanged(true); // start flashing
+            TriggerFlashStart();
         });
+    }
+
+    private void TriggerFlashStart()
+    {
+        if (!shouldFlash)
+        {
+            return;   // something else (likely game over UI) is blocking
+        }
+
+        Debug.Log("BEGIN FLASHING");
+
+        _bciTool.ResetStimuli();
+        _bciTool.StartBCI(_frequencies, _stimuliList);
+        HandleStimuliFlashingChanged(true); // start flashing
     }
 
     #endregion

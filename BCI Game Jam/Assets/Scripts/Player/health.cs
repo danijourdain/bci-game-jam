@@ -46,8 +46,10 @@ public class health : MonoBehaviour
 
     public void HandleHeal(float healAmount)
     {
+        if(current_HP < Max_HP)
+        {
             current_HP += healAmount;
-            current_HP = Mathf.Clamp(current_HP, 0, Max_HP);
             healthBarUI.SetFill(current_HP, Max_HP);
+        }
     }
 }
