@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {   
         //for debugging
-        if(Keyboard.current.pKey.wasPressedThisFrame)
+        if(Keyboard.current.dKey.wasPressedThisFrame)
         {
             Instance.GameOver();
         }
