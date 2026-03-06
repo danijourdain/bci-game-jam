@@ -44,12 +44,13 @@ public class GameManager : MonoBehaviour
         PlayerXP.OnLevelUp -= EnableLevelUpScreen;  // always unsubscribe!
     }
 
-    public void start()
+    public void Start()
     {
         
         controls.Player.pos1.performed += ctx => SelectPowerup(0);
         controls.Player.pos2.performed += ctx => SelectPowerup(1);
         controls.Player.pos3.performed += ctx => SelectPowerup(2);
+        Debug.Log("HI");
     }
 
     private void EnableLevelUpScreen()
