@@ -1,10 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 public class ability : MonoBehaviour
 {
-    [Header("Extra Damage")]
-    public float lifeSteal = 0f; // percentage of damage dealt that is returned as health
+    [Header("Stats")]
     public float magicDamage = 0f; // additional damage that ignores armor
     public float cooldownReduction = 0f; // percentage reduction in cooldowns
 
@@ -69,12 +69,12 @@ public class ability : MonoBehaviour
         {
             // instantiate sawblade projectile and set its properties based on sawblade_level
             sawblade_timer += Time.deltaTime;
-            if (sawblade_timer >= sawblade_cooldown)
+            if (sawblade_timer >= sawblade_cooldown-cooldownReduction)
             {
                 // fire sawblade projectile
                 sawblade_timer = 0f;
                 sawblade_projectile.GetComponent<bullet>().despawnTimer = sawblade_level*10; // set the level of the sawblade to determine its damage and size
-                shoot_and_turn.Shoot(transform, quadrant, 1, magicDamage, sawblade_projectile);
+                shoot_and_turn.Shoot(transform, quadrant, 0.5f, magicDamage, sawblade_projectile);
             }
 
         }
@@ -86,7 +86,7 @@ public class ability : MonoBehaviour
         {
             // instantiate plasma ball projectile and set its properties based on plasma_ball_level
             plasma_ball_timer += Time.deltaTime;
-            if (plasma_ball_timer >= plasma_ball_cooldown)
+            if (plasma_ball_timer >= plasma_ball_cooldown-cooldownReduction)
             {
                 // fire plasma ball projectile
                 plasma_ball_timer = 0f;
@@ -103,7 +103,7 @@ public class ability : MonoBehaviour
         {
             // instantiate laser projectile and set its properties based on laser_beam_level
             laser_beam_timer += Time.deltaTime;
-            if (laser_beam_timer >= laser_beam_cooldown)
+            if (laser_beam_timer >= laser_beam_cooldown-cooldownReduction)
             {
                 // fire laser projectile
                 laser_beam_timer = 0f;
@@ -120,7 +120,7 @@ public class ability : MonoBehaviour
         {
             // instantiate electricity charge projectile and set its properties based on electricity_charge_level
             electricity_charge_timer += Time.deltaTime;
-            if (electricity_charge_timer >= electricity_charge_cooldown)
+            if (electricity_charge_timer >= electricity_charge_cooldown-cooldownReduction)
             {
                 // fire electricity charge projectile
                 electricity_charge_timer = 0f;
