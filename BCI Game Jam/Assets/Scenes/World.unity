@@ -1491,12 +1491,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ability
   lifeSteal: 0
-  magicDamage: 0
+  magicDamage: 1
   cooldownReduction: 0
   is_available: 1
   speed: 10
   quadrant: 0
-  sawblade_level: 0
+  sawblade_level: 1
   sawblade_cooldown: 10
   sawblade_timer: 0
   sawblade_projectile: {fileID: 7848658160920619835, guid: 2c063693b06e50e438136eebd429e9ee, type: 3}
