@@ -23,17 +23,21 @@ public class LevelUpScreen : MonoBehaviour
     void Awake()
     {
         powerupCardText = new List<string> {
-            "Increase max HP by 3",
-            "Increase attack damage by 1",
-            "Speed up shooting by 10%",
-            "Heal +10% of damage dealt",
-            "Decrease ability cooldown by 10%",
-            "Increase magic damage by 1",
-            "Increase max HP by 10",
-            "Take 10% less damage from attacks",
-            "Dodge chance +10%",
-            "Decrease sawblade cooldown by 10%",
-            "Decrease plasma ball cooldown by 10%"
+            "Tanky \nIncrease max HP",
+            "Sharp Bullets \nNose to the Grindstone",
+            "Rapid Fire \nBullet hell",
+            "Vampiric Bullets \nOne AH AH AH",
+            "Cooled Off \nSpammer",
+            "Increased Magic \nBullets Ain't Magic",
+            "Chunky \nBIG MAN",
+            "Tanky \nDurable",
+            "Slippery \nCatch Me If You Can",
+            "Plasma Ball \nIncreased Growth",
+            "Sawblade \nLonger Lasting",
+            "Electricity Charge \nMore Splits",
+            "Laser Beam \nBIGGER BEAM",
+            "GAMBLING! \nSurprise!",
+            "Slot Machine \n90% of Gamblers quit before they hit it big!"
         };
 
         powerupMethods = new List<Action>
@@ -48,7 +52,11 @@ public class LevelUpScreen : MonoBehaviour
             abilityGiver.tanky,
             abilityGiver.slippery,
             abilityGiver.IncreasePlasmaBallLevel,
-            abilityGiver.IncreaseSawbladeLevel
+            abilityGiver.IncreaseSawbladeLevel,
+            abilityGiver.IncreaseElectricityChargeLevel,
+            abilityGiver.IncreaseLaserLevel,
+            abilityGiver.GiveRandomPowerup,
+            abilityGiver.IncreaseSlotMachineLevel
         };
 
         selectedPowerupMethods = new List<Action> {null, null, null};

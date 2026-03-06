@@ -1498,20 +1498,22 @@ MonoBehaviour:
   sawblade_level: 0
   sawblade_cooldown: 10
   sawblade_timer: 0
-  sawblade_projectile: {fileID: 0}
+  sawblade_projectile: {fileID: 7848658160920619835, guid: 2c063693b06e50e438136eebd429e9ee, type: 3}
   ice_shard_level: 0
   ice_shard_cooldown: 5
   ice_shard_timer: 0
   plasma_ball_level: 0
   plasma_ball_cooldown: 5
   plasma_ball_timer: 0
-  plasma_ball_projectile: {fileID: 0}
+  plasma_ball_projectile: {fileID: 7848658160920619835, guid: 83a58264b93ea974e8f9d4ae82fcbb41, type: 3}
   electricity_charge_level: 0
   electricity_charge_cooldown: 5
   electricity_charge_timer: 0
+  electricity_charge_projectile: {fileID: 6966491122021851415, guid: bf53467d3bf5ce64396bf648fe216962, type: 3}
   laser_beam_level: 0
   laser_beam_cooldown: 5
   laser_beam_timer: 0
+  laser_projectile: {fileID: 7848658160920619835, guid: 0f619a8e0b0d4aa4187a1848af8a3802, type: 3}
   missile_level: 0
   missile_cooldown: 5
   missile_timer: 0

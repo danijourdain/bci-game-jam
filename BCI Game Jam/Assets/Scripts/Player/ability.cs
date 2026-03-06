@@ -37,6 +37,10 @@ public class ability : MonoBehaviour
     public float laser_beam_cooldown = 5f; // cooldown for the laser beam ability
     public float laser_beam_timer = 0f; // timer for the laser beam ability
     public GameObject laser_projectile; // prefab for the laser projectile
+    [Header("Slot Machine")]
+    public int slot_machine_level = 0; // fires a random projectile from the above abilities, but with a much shorter cooldown
+    public float slot_machine_cooldown = 3f; // cooldown for the slot machine ability
+    public float slot_machine_timer = 0f; // timer for the slot machine ability
     [Header("Missile")]
     public int missile_level = 0; // fires a missile that homes in on the nearest enemy
     public float missile_cooldown = 5f; // cooldown for the missile ability
@@ -69,6 +73,7 @@ public class ability : MonoBehaviour
             {
                 // fire sawblade projectile
                 sawblade_timer = 0f;
+                sawblade_projectile.GetComponent<bullet>().despawnTimer = sawblade_level*10; // set the level of the sawblade to determine its damage and size
                 shoot_and_turn.Shoot(transform, quadrant, 1, magicDamage, sawblade_projectile);
             }
 
@@ -126,6 +131,42 @@ public class ability : MonoBehaviour
 
     }
 
+    void SlotMachine()
+    {
+        // code for firing a random projectile from the above abilities, but with a much shorter cooldown
+        if (slot_machine_level > 0)
+        {
+            slot_machine_timer += Time.deltaTime;
+            if (slot_machine_timer >= slot_machine_cooldown)
+            {
+                // randomly select one of the above abilities to fire
+                int randomAbility = Random.Range(0, 6); // change this range if you add more abilities
+                switch (randomAbility)
+                {
+                    case 0:
+                        plasma_ball_projectile.GetComponent<plasmaBall>().level = slot_machine_level+1; // set the level of the plasma ball to determine its damage and size
+                        shoot_and_turn.Shoot(transform, quadrant, 1, magicDamage, plasma_ball_projectile);
+                        break;
+                    case 1:
+                        sawblade_projectile.GetComponent<bullet>().despawnTimer = (slot_machine_level+1)*10; // set the level of the sawblade to determine its damage and size
+                        shoot_and_turn.Shoot(transform, quadrant, 1, magicDamage, sawblade_projectile);
+                        break;
+                    case 2:
+                        laser_projectile.GetComponent<laser>().level = slot_machine_level+1; // set the level of the laser to determine its damage and size
+                        shoot_and_turn.Shoot(transform, quadrant, 1, magicDamage, laser_projectile);
+                        break;
+                    case 3:
+                        electricity_charge_projectile.GetComponent<electricityCharge>().level = slot_machine_level+1; // set the level of the electricity charge to determine its damage and size
+                        shoot_and_turn.Shoot(transform, quadrant, 1, magicDamage, electricity_charge_projectile);
+                        break;
+                    default:
+                        break;
+                }
+                slot_machine_timer = 0f;
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -133,6 +174,7 @@ public class ability : MonoBehaviour
         plasmaBall();
         laser();
         electricityCharge();
+        SlotMachine();
     }
 }
 

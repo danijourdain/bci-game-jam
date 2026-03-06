@@ -96,12 +96,31 @@ public class ability_giver : MonoBehaviour
     public void IncreaseSawbladeLevel()
     {
         ability_script.sawblade_level++;
-        ability_script.sawblade_cooldown *= 0.9f;   // decrease cooldown by 10%
     }
 
     public void IncreasePlasmaBallLevel()
     {
         ability_script.plasma_ball_level++;
-        ability_script.plasma_ball_cooldown *= 0.9f;  
+    }
+
+    public void GiveRandomPowerup()
+    {
+        int index = UnityEngine.Random.Range(0, powerups.Count);
+        powerups[index].Invoke();
+    }
+
+    public void IncreaseLaserLevel()
+    {
+        ability_script.laser_beam_level++;
+    }
+
+    public void IncreaseElectricityChargeLevel()
+    {
+        ability_script.electricity_charge_level++;
+    }
+
+    public void IncreaseSlotMachineLevel()
+    {
+        ability_script.slot_machine_level++;
     }
 }
