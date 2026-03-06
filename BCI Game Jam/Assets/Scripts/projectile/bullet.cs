@@ -18,7 +18,7 @@ public class bullet: MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<IBaseEnemy>().TakeDamage(damage_amount);
+            other.gameObject.GetComponent<enemy>().TakeDamage(damage_amount);
             if (piercing == false)
             {
                 Destroy(gameObject);
