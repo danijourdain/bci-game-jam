@@ -28,7 +28,7 @@ public class bullet: MonoBehaviour
                 health health = FindObjectOfType<health>();
                 if (health != null)
                 {
-                    health.Heal(heal_amount);
+                    health.HandleHeal(heal_amount);
                 }
             }
             if (piercing == false)
