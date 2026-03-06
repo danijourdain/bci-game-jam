@@ -21,9 +21,11 @@ public class shoot_and_turn : MonoBehaviour
     private InputSystem_Actions controls;
     public int quadrant = 1; // 1: leftmost, 2: left middle, 3: right middle, 4: rightmost
     private Vector2 forward;
-    private bool shouldShoot = false;
-    private Quaternion defaultRotation;
 
+    public float XP;
+
+    public float XP_threshold = 100f; // XP needed to level up
+    public int level = 1; // current player level
     private void Awake()
     {
         controls = new InputSystem_Actions();
@@ -83,6 +85,14 @@ public class shoot_and_turn : MonoBehaviour
                 shoot_and_turn.Shoot(transform, quadrant, speed, damage, projectilePrefab);
                 shootTimer = 0f;
             }
+        }
+        if (XP>= XP_threshold)
+        {
+            level++;
+            XP -= XP_threshold; // reset XP but keep overflow
+            XP_threshold *= 1.5f; // increase threshold for next level
+            // TODO: add level up effects, stat increases, etc.
+            Debug.Log("Level Up! Current Level: " + level);
         }
     }
 
