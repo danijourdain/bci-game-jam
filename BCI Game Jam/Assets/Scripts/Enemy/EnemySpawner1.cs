@@ -31,22 +31,22 @@ public class EnemySpawner : MonoBehaviour
         // }
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
-        foreach (var enemyData in enemies)
-        {
-            if(spawningEnabled)
+        coolDownTimer -= Time.deltaTime;
+        
+        if(spawningEnabled && coolDownTimer <= 0) {
+            coolDownTimer = spawnCoolDown;
+            foreach (var enemyData in enemies)
             {
-                if (coolDownTimer <= 0)
+                if(ShouldSpawn(enemyData.spawnChance, enemyData.enemyName))
                 {
-                    coolDownTimer = spawnCoolDown;
-                    if(ShouldSpawn(enemyData.spawnChance))
-                    {
-                        SpawnEnemy(enemyData);
-                    }   
-                }
-                coolDownTimer -= Time.deltaTime;
+                    SpawnEnemy(enemyData);
+                }   
             }
+        } else if (coolDownTimer <= 0)
+        {
+            coolDownTimer = spawnCoolDown;
         }
     }
     // private IEnumerator SpawnEnemyCoroutine(EnemySpawnData data)
@@ -62,9 +62,12 @@ public class EnemySpawner : MonoBehaviour
     //     }
     // }
 
-    private bool ShouldSpawn(float chance)
+    private bool ShouldSpawn(float chance, string name)
     {
-        return Random.value <= chance;
+        float value = Random.value;
+        Debug.Log("SPAWNING " + name + " with spawn chance " + chance + ". Got value of " + value);
+
+        return  value <= chance;
     }
 
     private void SpawnEnemy(EnemySpawnData data)

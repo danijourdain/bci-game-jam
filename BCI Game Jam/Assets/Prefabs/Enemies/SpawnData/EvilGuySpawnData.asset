@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EvilGuySpawnData
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnData
   enemyPrefab: {fileID: 5502382298737969485, guid: 622fdab5c9f8f9c41ba962e66210d13e, type: 3}
-  enemyName: 
+  enemyName: Evil Guy
   spawnInterval: 5
   spawnChance: 0.1
