@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9ff22af0c41c784c875c2e582f90282, type: 3}
-  m_Name: HealthSpawnData
+  m_Name: EvilGuySpawnData
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnData
-  enemyPrefab: {fileID: 5502382298737969485, guid: d84189d2c2561214697f8056ae5e6bda, type: 3}
+  enemyPrefab: {fileID: 5502382298737969485, guid: 622fdab5c9f8f9c41ba962e66210d13e, type: 3}
   enemyName: 
   spawnInterval: 5
   spawnChance: 0.1

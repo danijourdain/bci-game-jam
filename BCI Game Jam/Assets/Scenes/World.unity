@@ -1274,6 +1274,9 @@ MonoBehaviour:
   enemies:
   - {fileID: 11400000, guid: b06b4bcce975057448c5a316992c710f, type: 2}
   - {fileID: 11400000, guid: 5a600f46e8fe5e04592d0fe9a773eefa, type: 2}
+  - {fileID: 11400000, guid: 441f7395d49e1834c8843941ca56f48a, type: 2}
+  - {fileID: 11400000, guid: dd8acbf84955070438468d41e2cded7e, type: 2}
+  - {fileID: 11400000, guid: 3565b70ac153579439412748c7549ca4, type: 2}
   pathStarts:
   - {fileID: 811625348}
   - {fileID: 1162484226}
