@@ -23,31 +23,40 @@ public class ability_giver : MonoBehaviour
         // register all possible powerups
         powerups = new List<Action>
         {
-            health_example,
+            Magic_bullets,
             sharp_bullets,
+            sharp_bullets,
+            rapid_fire,
             rapid_fire,
             vampiric_bullets,
             cooled_off,
+            increased_magic,
             increased_magic,
             chunky,
             tanky,
             slippery,
             IncreasePlasmaBallLevel,
-            IncreaseSawbladeLevel
+            IncreaseSawbladeLevel,
+            BIG_MAN,
         };
     }
 
-    public void health_example()
-    {
-        float amount = 3f;
-        health_script.Max_HP += amount;
-        health_script.current_HP += amount;
-        // the health script has max_health, current_health, damage_reduction, and dodge_chance. 
-    }
 
     public void sharp_bullets()
     {
-        attack_script.damage += 1f; // increase damage by 1
+        attack_script.damage += 5f; // increase damage by 1
+    }
+
+    public void Magic_bullets()
+    {
+        ability_script.magicDamage += 2f; // increase magic damage by 1
+        attack_script.damage += 1f; // increase physical damage by 0.5
+    }
+
+    public void BIG_MAN(){
+        health_script.Max_HP += 20; // increase max health by 20
+        health_script.current_HP += 20; // heal for 20
+        health_script.damage_reduction += 0.1f; // increase damage by 5
     }
 
     public void rapid_fire()
@@ -69,7 +78,7 @@ public class ability_giver : MonoBehaviour
 
     public void increased_magic()
     {
-        ability_script.magicDamage += 1f; // increase magic damage by 1
+        ability_script.magicDamage += 2f; // increase magic damage by 1
     }
 
     public void chunky()
