@@ -14,10 +14,18 @@ public class EnemySpawner : MonoBehaviour
     // private int currentEnemyCount = 0;
     private bool spawningEnabled = false;
     public float coolDownTimer;
+
+    public int scale = 0;
     public void Start()
     {
         spawningEnabled = true;
-        // foreach (var enemyData in enemies)
+        // enemies[4].enemyPrefab.GetComponent<enemy>().damage_amount = enemies[4].enemyPrefab.GetComponent<enemy>().basedmg;
+        // enemies[3].enemyPrefab.GetComponent<enemy>().damage_amount = enemies[3].enemyPrefab.GetComponent<enemy>().basedmg;
+        // enemies[2].enemyPrefab.GetComponent<enemy>().damage_amount = enemies[2].enemyPrefab.GetComponent<enemy>().basedmg;
+        // enemies[4].enemyPrefab.GetComponent<enemy>().HP  =  enemies[4].enemyPrefab.GetComponent<enemy>().baseHP; 
+        // enemies[3].enemyPrefab.GetComponent<enemy>().HP  =  enemies[3].enemyPrefab.GetComponent<enemy>().baseHP; 
+        // enemies[2].enemyPrefab.GetComponent<enemy>().HP  =  enemies[2].enemyPrefab.GetComponent<enemy>().baseHP; 
+        // // foreach (var enemyData in enemies)
         // {
         //     StartCoroutine(SpawnEnemyCoroutine(enemyData));
         // }
@@ -61,7 +69,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy(EnemySpawnData data)
     {
-        Instantiate(data.enemyPrefab, transform, false);
+       GameObject enemy = Instantiate(data.enemyPrefab, transform, false);
+       enemy.GetComponent<enemy>().HP = data.enemyPrefab.GetComponent<enemy>().baseHP * Mathf.Pow(2,scale);
+       enemy.GetComponent<enemy>().damage_amount = data.enemyPrefab.GetComponent<enemy>().basedmg * Mathf.Pow(2,scale);
     }
 
     public void Stop()

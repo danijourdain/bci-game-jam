@@ -121,9 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ca93b2dea721c4d834deb49804f1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemy
-  damage_amount: 1
-  HP: 1
-  xpValue: 5
+  damage_amount: 4
+  HP: 20
+  xpValue: 15
+  baseHP: 20
+  basedmg: 4
 --- !u!50 &4559950745562445164
 Rigidbody2D:
   serializedVersion: 5
