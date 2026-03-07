@@ -18,7 +18,7 @@ public class RestartCountdown : MonoBehaviour
         restartText.text = timeLeft.ToString("0");
         if (timeLeft < 0 && !restarted)
         {
-            SceneManager.LoadScene (sceneName:"Put the name of the scene here");
+            SceneManager.LoadScene (sceneName:"credits");
         }
     }
 

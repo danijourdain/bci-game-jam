@@ -11,10 +11,10 @@ public class SelectMode : MonoBehaviour
         if (Keyboard.current.digit0Key.wasPressedThisFrame || Keyboard.current.numpad0Key.wasPressedThisFrame)
         {
             // start 2048   
-            if (SceneManager.GetActiveScene().name != "World")
-            {
                 SceneManager.LoadScene("World");
-            }
+            // if (SceneManager.GetActiveScene().name != "World")
+            // {
+            // }
 
             GameManager.Instance.StartGame();
         }

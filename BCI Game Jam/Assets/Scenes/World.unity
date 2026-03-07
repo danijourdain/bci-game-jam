@@ -2734,7 +2734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1057419688
 Transform:
   m_ObjectHideFlags: 0
@@ -3550,7 +3550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647642579856a964aa4f5dfe2d7b3c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Countdown
-  countdownTime: 5
+  countdownTime: 10
   restartText: {fileID: 1030639031}
 --- !u!1 &1258839412
 GameObject:
@@ -3953,6 +3953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9634da7d75aed4e4baf882db6c75c7ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  playing: 0000000000000000000000000000000000000000
   AllSounds:
   - Type: 0
     Clip: {fileID: 8300000, guid: c6794f5248d14314c92716fab4c53fe5, type: 3}
