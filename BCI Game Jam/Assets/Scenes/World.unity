@@ -1285,6 +1285,9 @@ MonoBehaviour:
   - {fileID: 585460344}
   - {fileID: 218077181}
   pathEnd: {fileID: 254758414}
+  spawnCoolDown: 1
+  coolDownTimer: 0
+  scale: 1
 --- !u!1 &527841356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,6 +1554,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerXP
   xpBar: {fileID: 838395356}
+  xpToNextLevel: 100
+  spawner: {fileID: 491201804}
 --- !u!114 &527841365
 MonoBehaviour:
   m_ObjectHideFlags: 0

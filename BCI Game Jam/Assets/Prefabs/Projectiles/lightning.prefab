@@ -183,5 +183,5 @@ MonoBehaviour:
   damage_amount: 1
   piercing: 1
   level: 1
-  maxSegments: 45
+  maxSegments: 20
   timesHit: 0
