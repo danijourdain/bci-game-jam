@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ecb70d5d298584c90aab9935f6155f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowPath
-  moveSpeed: 0.00625
+  moveSpeed: 0.012
   laneOffset: 0.5
 --- !u!114 &4004590356859120404
 MonoBehaviour:
