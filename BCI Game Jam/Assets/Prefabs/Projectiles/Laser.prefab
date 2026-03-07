@@ -214,3 +214,4 @@ MonoBehaviour:
   despawnTimer: 1
   damage_amount: 1
   piercing: 1
+  level: 0

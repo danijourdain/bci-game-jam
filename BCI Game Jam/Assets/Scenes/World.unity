@@ -1257,6 +1257,8 @@ Transform:
   - {fileID: 128715927}
   - {fileID: 527841357}
   - {fileID: 1057419688}
+  - {fileID: 1441654390}
+  - {fileID: 875119556}
   m_Father: {fileID: 1102947398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &491201804
@@ -1422,6 +1424,7 @@ MonoBehaviour:
   shootInterval: 0.5
   damage: 1
   quadrant: 1
+  lifeSteal: 0
 --- !u!212 &527841362
 SpriteRenderer:
   serializedVersion: 2
@@ -1493,13 +1496,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3cb049095a472428787b456cdc1a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ability
-  lifeSteal: 0
   magicDamage: 1
   cooldownReduction: 0
   is_available: 1
   speed: 10
   quadrant: 0
-  sawblade_level: 1
+  sawblade_level: 0
   sawblade_cooldown: 10
   sawblade_timer: 0
   sawblade_projectile: {fileID: 7848658160920619835, guid: 2c063693b06e50e438136eebd429e9ee, type: 3}
@@ -1507,11 +1509,11 @@ MonoBehaviour:
   ice_shard_cooldown: 5
   ice_shard_timer: 0
   plasma_ball_level: 0
-  plasma_ball_cooldown: 5
+  plasma_ball_cooldown: 10
   plasma_ball_timer: 0
   plasma_ball_projectile: {fileID: 7848658160920619835, guid: 83a58264b93ea974e8f9d4ae82fcbb41, type: 3}
   electricity_charge_level: 0
-  electricity_charge_cooldown: 5
+  electricity_charge_cooldown: 15
   electricity_charge_timer: 0
   electricity_charge_projectile: {fileID: 6966491122021851415, guid: bf53467d3bf5ce64396bf648fe216962, type: 3}
   laser_beam_level: 0
@@ -2154,6 +2156,50 @@ Transform:
   - {fileID: 533225895}
   m_Father: {fileID: 1102947398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &875119555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 875119556}
+  - component: {fileID: 875119557}
+  m_Layer: 0
+  m_Name: MusicPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &875119556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875119555}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 491201803}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &875119557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875119555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f640dbd8ac6775642ba95afbc79f5d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &877330090 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8747238803435313243, guid: be96ce3caf752ef4eb7628b3ba98b2bd, type: 3}
@@ -2750,7 +2796,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057419687}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1057419691
 Camera:
   m_ObjectHideFlags: 0
@@ -3858,6 +3904,83 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FillBar
   fillBar: {fileID: 1091224295}
   anchorX: 0
+--- !u!1 &1441654389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1441654390}
+  - component: {fileID: 1441654391}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1441654390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441654389}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 491201803}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1441654391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441654389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9634da7d75aed4e4baf882db6c75c7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  AllSounds:
+  - Type: 0
+    Clip: {fileID: 8300000, guid: c6794f5248d14314c92716fab4c53fe5, type: 3}
+    Volume: 0.1
+    Source: {fileID: 0}
+  - Type: 3
+    Clip: {fileID: 8300000, guid: fdfb22ef75902994fad2ca9b785cb172, type: 3}
+    Volume: 0.1
+    Source: {fileID: 0}
+  - Type: 2
+    Clip: {fileID: 8300000, guid: 9ad4b37d2514246478aa674cb6973cb3, type: 3}
+    Volume: 0.1
+    Source: {fileID: 0}
+  - Type: 1
+    Clip: {fileID: 8300000, guid: e551a66390581cb4284efe1961cbf029, type: 3}
+    Volume: 0.05
+    Source: {fileID: 0}
+  - Type: 7
+    Clip: {fileID: 8300000, guid: 467cc21c542cb164a84bb8a7a9b2ab94, type: 3}
+    Volume: 0.01
+    Source: {fileID: 0}
+  - Type: 8
+    Clip: {fileID: 8300000, guid: 502399b8fa5582849b0b29984e75fed8, type: 3}
+    Volume: 0.01
+    Source: {fileID: 0}
+  - Type: 9
+    Clip: {fileID: 8300000, guid: 276098523bc86264a96adfbe63fd10ee, type: 3}
+    Volume: 0.01
+    Source: {fileID: 0}
+  - Type: 10
+    Clip: {fileID: 8300000, guid: c0fa086899f16024891e58e28188c94f, type: 3}
+    Volume: 0.01
+    Source: {fileID: 0}
 --- !u!1001 &1540442076
 PrefabInstance:
   m_ObjectHideFlags: 0

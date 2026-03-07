@@ -11,14 +11,24 @@ public class electricityCharge: MonoBehaviour
     public int maxSegments = 5; // maximum number of segments that can be chained together
     public int timesHit = 0; // number of times the electricity charge has hit an enemy, used to determine how many segments to chain
     private bool hit = false; // whether the electricity charge has hit an enemy or not
+    public bool isFirstSegment = true; // whether this is the first segment of the electricity charge or not, used to determine the initial direction of the charge
 
     void Start()
     {
         // set velocity to zero
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
 
+        if (isFirstSegment)
+        {
+            //play audio for the first segment of the electricity charge
+            AudioManager.Instance.Play(AudioManager.SoundType.ElecticalCharge);
+        }
+
+        // //play audio for the electricity charge
+        // AudioManager.Instance.Play(AudioManager.SoundType.ElecticalCharge);
+
         if (maxSegments > 0){
-            float angle = Random.Range(-25f, 25f);
+            float angle = Random.Range(-45f, 45f);
             Quaternion newDirection = Quaternion.Euler(0, 0, angle);
             newDirection = transform.rotation * newDirection;
             
@@ -45,7 +55,7 @@ public class electricityCharge: MonoBehaviour
         newSegment.GetComponent<electricityCharge>().damage_amount = damage_amount; // set the
         newSegment.GetComponent<electricityCharge>().piercing = piercing; // set the piercing property of the new segment to be the same as the previous one
         newSegment.GetComponent<electricityCharge>().timesHit = timesHit; // decrease the maxSegments of the new segment by 1 to prevent infinite chaining
-
+        newSegment.GetComponent<electricityCharge>().isFirstSegment = false; // set isFirstSegment to false for the new segment
     }
 
     void OnTriggerEnter2D(Collider2D other)

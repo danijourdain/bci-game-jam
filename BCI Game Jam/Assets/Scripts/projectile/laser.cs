@@ -11,6 +11,7 @@ public class laser: MonoBehaviour
     {
         // set velocity to zero
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        AudioManager.Instance.Play(AudioManager.SoundType.Laser);
         // set the Y transform to 100 to make sure the laser stretches across the whole screen
         Vector3 newScale = transform.localScale;
         newScale.y = 100f*transform.localScale.y;

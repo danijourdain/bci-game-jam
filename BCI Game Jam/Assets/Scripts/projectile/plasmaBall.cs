@@ -38,6 +38,8 @@ public class plasmaBall: MonoBehaviour
         if (other.CompareTag("Enemy") && hit == false)
         {
             StartCoroutine(hitEnemy(other));
+            //play audio on first hit 
+            AudioManager.Instance.Play(AudioManager.SoundType.PlasmaBall, 1f/level);
         }
     }
 
