@@ -8,7 +8,9 @@ public class PlayerXP : MonoBehaviour
     public static event Action OnLevelUp;
 
     private float currentXP = 0f;
-    private readonly float xpToNextLevel = 100f;
+    public float xpToNextLevel = 100f;
+
+    public EnemySpawner spawner;
 
     public void Start()
     {
@@ -38,6 +40,8 @@ public class PlayerXP : MonoBehaviour
     private void LevelUp()
     {
         currentXP -= xpToNextLevel;
+        xpToNextLevel *= 1.5f;
+        spawner.spawnCoolDown *= 0.75f;
         xpBar.SetFill(currentXP, xpToNextLevel);
 
         // trigger level up event

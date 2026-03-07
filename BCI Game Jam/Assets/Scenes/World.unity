@@ -1283,6 +1283,8 @@ MonoBehaviour:
   - {fileID: 585460344}
   - {fileID: 218077181}
   pathEnd: {fileID: 254758414}
+  spawnCoolDown: 0.1
+  coolDownTimer: 0
 --- !u!1 &527841356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,6 +1424,7 @@ MonoBehaviour:
   shootInterval: 0.5
   damage: 1
   quadrant: 1
+  lifeSteal: 0
 --- !u!212 &527841362
 SpriteRenderer:
   serializedVersion: 2
@@ -1493,13 +1496,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3cb049095a472428787b456cdc1a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ability
-  lifeSteal: 0
   magicDamage: 1
   cooldownReduction: 0
   is_available: 1
   speed: 10
   quadrant: 0
-  sawblade_level: 1
+  sawblade_level: 0
   sawblade_cooldown: 10
   sawblade_timer: 0
   sawblade_projectile: {fileID: 7848658160920619835, guid: 2c063693b06e50e438136eebd429e9ee, type: 3}
@@ -1510,8 +1512,8 @@ MonoBehaviour:
   plasma_ball_cooldown: 5
   plasma_ball_timer: 0
   plasma_ball_projectile: {fileID: 7848658160920619835, guid: 83a58264b93ea974e8f9d4ae82fcbb41, type: 3}
-  electricity_charge_level: 0
-  electricity_charge_cooldown: 5
+  electricity_charge_level: 5
+  electricity_charge_cooldown: 1
   electricity_charge_timer: 0
   electricity_charge_projectile: {fileID: 6966491122021851415, guid: bf53467d3bf5ce64396bf648fe216962, type: 3}
   laser_beam_level: 0
@@ -1549,6 +1551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerXP
   xpBar: {fileID: 838395356}
+  xpToNextLevel: 1e+10
+  spawner: {fileID: 491201804}
 --- !u!114 &527841365
 MonoBehaviour:
   m_ObjectHideFlags: 0

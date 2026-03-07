@@ -34,18 +34,15 @@ public class electricityCharge: MonoBehaviour
         }
     }
 
-    void makeNewChargeSegment(Vector3 positionOfLastSegment, Quaternion directionOfLastSegment)
+    GameObject makeNewChargeSegment(Vector3 positionOfLastSegment, Quaternion directionOfLastSegment)
     {
         // make a new segment of the same size in front of the most recent one
+        maxSegments -=1;
         GameObject newSegment = Instantiate(gameObject, transform.parent, false);
         newSegment.transform.position = positionOfLastSegment + transform.up/40; // set the position of the new segment to be in front of the last one
         newSegment.transform.rotation = directionOfLastSegment; // set the rotation of the new segment to be in the same direction as the last one
-        newSegment.GetComponent<electricityCharge>().maxSegments = maxSegments - 1; // decrease the maxSegments of the new segment by 1 to prevent infinite chaining
-        newSegment.GetComponent<electricityCharge>().level = level; // set the level of the new segment to be the same as the previous one
-        newSegment.GetComponent<electricityCharge>().damage_amount = damage_amount; // set the
-        newSegment.GetComponent<electricityCharge>().piercing = piercing; // set the piercing property of the new segment to be the same as the previous one
-        newSegment.GetComponent<electricityCharge>().timesHit = timesHit; // decrease the maxSegments of the new segment by 1 to prevent infinite chaining
-
+        // newSegment.GetComponent<electricityCharge>().maxSegments = maxSegments - 1;
+        return newSegment;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -58,19 +55,21 @@ public class electricityCharge: MonoBehaviour
                 if (maxSegments > 0 && timesHit < level) // only chain if we haven't reached the maximum number of segments and the electricity charge has hit an enemy less times than its level
                 {
                     timesHit++; // increase the timesHit counter to keep track of how many times the electricity charge has hit an enemy
-                    for (int i = 0; i < 1; i++)
-                    {
+                  
                     float angle = Random.Range(-90f, 90f);
                     Quaternion newDirection = Quaternion.Euler(0, 0, angle);
                     newDirection = transform.rotation * newDirection; // rotate the new direction by the rotation of the last segment
                     
-                    makeNewChargeSegment(transform.position, newDirection);
-                    }
+                    GameObject branch = makeNewChargeSegment(transform.position, newDirection);
+                    branch.GetComponent<electricityCharge>().timesHit = level;
                 }
             if (piercing == false)
             {
                 Destroy(gameObject);
             }
+        }else if (other.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
         }
     }
 }
