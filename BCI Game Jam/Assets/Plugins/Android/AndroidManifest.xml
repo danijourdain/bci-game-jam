@@ -7,7 +7,7 @@
     android:installLocation="2"
     android:compileSdkVersion="33"
     android:compileSdkVersionCodename="13"
-    package="com.DefaultCompany.BCDefence"
+    package="com.AntLion.BCDefence"
     platformBuildVersionCode="33"
     platformBuildVersionName="13">
 
@@ -66,11 +66,11 @@
         android:required="false" />
 
     <permission
-        android:name="com.DefaultCompany.BCDefence.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.AntLion.BCDefence.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
     <uses-permission
-        android:name="com.DefaultCompany.bci.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+        android:name="com.AntLion.bci.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <queries>
         <package android:name="com.cognixion.telemetryserviceapp" />
@@ -151,7 +151,7 @@
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:exported="false"
-            android:authorities="com.DefaultCompany.BCDefence.androidx-startup"
+            android:authorities="com.AntLion.BCDefence.androidx-startup"
             tools:replace="android:authorities">
 
             <meta-data

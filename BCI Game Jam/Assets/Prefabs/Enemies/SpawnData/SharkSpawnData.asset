@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SharkSpawnData
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnData
   enemyPrefab: {fileID: 5502382298737969485, guid: 2f5cf53af12f6ae46add809a1b4743ff, type: 3}
-  enemyName: 
+  enemyName: Shark Enemy
   spawnInterval: 5
   spawnChance: 0.3
