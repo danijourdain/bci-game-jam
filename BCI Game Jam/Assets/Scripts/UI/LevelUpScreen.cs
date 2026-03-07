@@ -23,11 +23,14 @@ public class LevelUpScreen : MonoBehaviour
     void Awake()
     {
         powerupCardText = new List<string> {
-            "Tanky \nIncrease max HP",
+            "Magic Bullets \nAll Damage UP",
             "Sharp Bullets \nNose to the Grindstone",
+            "Sharp Bullets \nNose to the Grindstone",
+            "Rapid Fire \nBullet hell",
             "Rapid Fire \nBullet hell",
             "Vampiric Bullets \nOne AH AH AH",
             "Cooled Off \nSpammer",
+            "Increased Magic \nBullets Ain't Magic",
             "Increased Magic \nBullets Ain't Magic",
             "Chunky \nBIG MAN",
             "Tanky \nDurable",
@@ -37,16 +40,20 @@ public class LevelUpScreen : MonoBehaviour
             "Electricity Charge \nMore Splits",
             "Laser Beam \nBIGGER BEAM",
             "GAMBLING! \nSurprise!",
-            "Slot Machine \n90% of Gamblers quit before they hit it big!"
+            "Slot Machine \n90% of Gamblers quit before they hit it big!",
+            "BIG MAN \nBIG HEALTH BIG REDUCTION"
         };
 
         powerupMethods = new List<Action>
         {
-            abilityGiver.health_example,
+            abilityGiver.Magic_bullets,
             abilityGiver.sharp_bullets,
+            abilityGiver.sharp_bullets,
+            abilityGiver.rapid_fire,
             abilityGiver.rapid_fire,
             abilityGiver.vampiric_bullets,
             abilityGiver.cooled_off,
+            abilityGiver.increased_magic,
             abilityGiver.increased_magic,
             abilityGiver.chunky,
             abilityGiver.tanky,
@@ -56,7 +63,8 @@ public class LevelUpScreen : MonoBehaviour
             abilityGiver.IncreaseElectricityChargeLevel,
             abilityGiver.IncreaseLaserLevel,
             abilityGiver.GiveRandomPowerup,
-            abilityGiver.IncreaseSlotMachineLevel
+            abilityGiver.IncreaseSlotMachineLevel,
+            abilityGiver.BIG_MAN
         };
 
         selectedPowerupMethods = new List<Action> {null, null, null};

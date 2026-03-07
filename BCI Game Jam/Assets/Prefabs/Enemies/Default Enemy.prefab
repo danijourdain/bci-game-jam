@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ecb70d5d298584c90aab9935f6155f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowPath
-  moveSpeed: 0.025
+  moveSpeed: 0.00625
   laneOffset: 0.5
 --- !u!114 &4004590356859120404
 MonoBehaviour:
@@ -124,6 +124,8 @@ MonoBehaviour:
   damage_amount: 1
   HP: 1
   xpValue: 5
+  baseHP: 1
+  basedmg: 1
 --- !u!50 &4559950745562445164
 Rigidbody2D:
   serializedVersion: 5

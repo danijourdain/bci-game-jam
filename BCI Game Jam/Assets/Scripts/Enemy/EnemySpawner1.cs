@@ -70,8 +70,8 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy(EnemySpawnData data)
     {
        GameObject enemy = Instantiate(data.enemyPrefab, transform, false);
-       enemy.GetComponent<enemy>().HP = data.enemyPrefab.GetComponent<enemy>().baseHP * Mathf.Pow(2,scale-1);
-       enemy.GetComponent<enemy>().damage_amount = data.enemyPrefab.GetComponent<enemy>().basedmg * Mathf.Pow(2,scale-1);
+       enemy.GetComponent<enemy>().HP = data.enemyPrefab.GetComponent<enemy>().baseHP * 1.5f * scale;
+       enemy.GetComponent<enemy>().damage_amount = data.enemyPrefab.GetComponent<enemy>().basedmg * 1.5f * scale;
     }
 
     public void Stop()
