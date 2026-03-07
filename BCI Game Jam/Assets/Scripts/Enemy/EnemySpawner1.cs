@@ -65,8 +65,6 @@ public class EnemySpawner : MonoBehaviour
     private bool ShouldSpawn(float chance, string name)
     {
         float value = Random.value;
-        Debug.Log("SPAWNING " + name + " with spawn chance " + chance + ". Got value of " + value);
-
         return  value <= chance;
     }
 
