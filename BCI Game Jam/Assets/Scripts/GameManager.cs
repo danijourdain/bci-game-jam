@@ -69,18 +69,6 @@ public class GameManager : MonoBehaviour
         ResumeGame();
     }
 
-    void Update()
-    {   
-        //for debugging
-        if(Keyboard.current.dKey.wasPressedThisFrame)
-        {
-            Instance.GameOver();
-        }
-        else if (Keyboard.current.aKey.wasPressedThisFrame && currentlyLevellingUp)
-        {
-            SelectPowerup(0);
-        }
-    }
 
     private void Init()
     {

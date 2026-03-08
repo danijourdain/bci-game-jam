@@ -124,6 +124,7 @@ MonoBehaviour:
   damage_amount: 1
   HP: 1
   xpValue: 2.5
+  sprite: {fileID: 6550171921392795224}
 --- !u!50 &4559950745562445164
 Rigidbody2D:
   serializedVersion: 5

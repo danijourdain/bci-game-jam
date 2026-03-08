@@ -126,6 +126,7 @@ MonoBehaviour:
   xpValue: 10
   baseHP: 4
   basedmg: 2
+  sprite: {fileID: 6550171921392795224}
 --- !u!50 &4559950745562445164
 Rigidbody2D:
   serializedVersion: 5

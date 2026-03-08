@@ -1285,7 +1285,7 @@ MonoBehaviour:
   - {fileID: 585460344}
   - {fileID: 218077181}
   pathEnd: {fileID: 254758414}
-  spawnCoolDown: 1
+  spawnCoolDown: 4
   coolDownTimer: 0
   scale: 1
 --- !u!1 &527841356
