@@ -1,7 +1,6 @@
 using UnityEngine;
-using Cognixion.Services;
 
-public class HoverController : MonoBehaviour, IStimuliHoverController
+public class HoverController : MonoBehaviour //, IStimuliHoverController
 {
     [SerializeField] private Transform hoverGO;
     [SerializeField] private Color hoverColor;

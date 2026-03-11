@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject levelUpUI;
-    [SerializeField] private BCIController bciController;
+    // [SerializeField] private BCIController bciController;
     [SerializeField] private EnemySpawner enemySpawner; 
     [SerializeField] private GameObject playerGO;
     private shoot_and_turn shooter;
@@ -46,9 +46,9 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         
-        controls.Player.pos1.performed += ctx => SelectPowerup(0);
-        controls.Player.pos2.performed += ctx => SelectPowerup(1);
-        controls.Player.pos3.performed += ctx => SelectPowerup(2);
+        controls.Player.pos1.performed += ctx => { if (currentlyLevellingUp) SelectPowerup(0); };
+        controls.Player.pos2.performed += ctx => { if (currentlyLevellingUp) SelectPowerup(1); };
+        controls.Player.pos3.performed += ctx => { if (currentlyLevellingUp) SelectPowerup(2); };
         Debug.Log("HI");
     }
 
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
         DisableGameplay();
 
         // stop BCI stuff
-        bciController.StopFlashing();
+        // bciController.StopFlashing();
     }
 
     private void DisableGameplay()
@@ -124,6 +124,6 @@ public class GameManager : MonoBehaviour
         gameOverUI.SetActive(false);
     
         // start BCI stuff
-        bciController.StartFlashing();
+        // bciController.StartFlashing();
     }
 }

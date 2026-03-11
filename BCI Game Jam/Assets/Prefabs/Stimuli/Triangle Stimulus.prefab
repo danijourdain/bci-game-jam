@@ -9,9 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7160583366251902958}
-  - component: {fileID: 1645933454907456490}
   - component: {fileID: 2915349781826787657}
-  - component: {fileID: 508689871528967774}
   m_Layer: 0
   m_Name: BCIStimulusController
   m_TagString: Untagged
@@ -35,20 +33,6 @@ Transform:
   - {fileID: 536188974934266870}
   m_Father: {fileID: 597626140301473805}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1645933454907456490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018187970577866905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 714ade498cb774ce2b9b613f75063edc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Cognixion.Services.BCI::Cognixion.Services.BCI.StimuliMaterialController
-  _stimuliEffectGO: {fileID: 3935552123190960710}
-  _useSpriteRenderer: 1
 --- !u!114 &2915349781826787657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,24 +52,6 @@ MonoBehaviour:
   selectedThickness: 1.3
   isHovered: 0
   isSelected: 0
---- !u!114 &508689871528967774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018187970577866905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a84487a1b3d374cbda803a6a2d7d3ba6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Cognixion.Services.BCI::Cognixion.Services.BCI.BCIStimulus_MonoBehaviour
-  _id: 0
-  _dutyCycle: 0.5
-  _classLabel: 
-  _useClassLabel: 0
-  _interactable: {fileID: 3741529079385855609}
-  _flashController: {fileID: 1645933454907456490}
 --- !u!1 &2317864779565432300
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +244,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 597626140301473805}
-  - component: {fileID: 3741529079385855609}
   m_Layer: 0
   m_Name: Triangle Stimulus
   m_TagString: Untagged
@@ -302,15 +267,3 @@ Transform:
   - {fileID: 7160583366251902958}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3741529079385855609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8747238803435313243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 840aebdead2084172a10ee5432ef5da1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Cognixion.Services.BCI::Cognixion.Services.BCI.CXNInteractable
