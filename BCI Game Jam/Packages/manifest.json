@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.labstreaminglayer.lsl4unity": "https://github.com/labstreaminglayer/LSL4Unity.git#75d54ab160edaf02d2173350bbd91f1afbdb66d8",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "2.0.10",
     "com.unity.collab-proxy": "2.11.3",
